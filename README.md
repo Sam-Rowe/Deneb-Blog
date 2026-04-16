@@ -67,6 +67,16 @@ npm run lint:css
 npm run spellcheck
 ```
 
+## Copilot Skills
+
+This repository includes workspace-level GitHub Copilot skills for common validation tasks under `.github/skills/`.
+
+- `/run-spellcheck` runs the checked-in spellcheck workflow and checks for local prerequisites.
+- `/run-lint` runs the HTML and CSS lint scripts and checks for local prerequisites.
+- `/run-tests` runs the Playwright test workflows and checks for local prerequisites.
+
+On macOS, these skills are written to prefer Homebrew for missing system prerequisites such as Node.js before running the npm scripts.
+
 ---
 
 ## CI/CD
