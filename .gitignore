@@ -1,0 +1,24 @@
+# === Dependencies ===
+node_modules/
+
+# === Build outputs ===
+dist/
+
+# === Test outputs ===
+test-results/
+playwright-report/
+
+# === OS files ===
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# === Editor ===
+.vscode/
+.idea/
+
+# === Logs ===
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

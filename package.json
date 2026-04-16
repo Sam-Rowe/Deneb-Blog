@@ -1,0 +1,25 @@
+{
+  "name": "deneb-blog",
+  "version": "1.0.0",
+  "description": "Sam Rowe's AI-native editorial tech blog — exploring the SDLC through an AI lens.",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:accessibility": "playwright test tests/e2e/accessibility.spec.js",
+    "test:ux": "playwright test tests/e2e/homepage.spec.js tests/e2e/navigation.spec.js",
+    "test:report": "playwright show-report",
+    "lint:html": "htmlhint \"**/*.html\" --ignore \"node_modules/**\"",
+    "lint:css": "stylelint \"assets/css/**/*.css\"",
+    "spellcheck": "cspell \"**/*.{html,md,css,js}\" --no-progress",
+    "serve": "serve . -l 3000"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.9.1",
+    "@playwright/test": "^1.44.0",
+    "cspell": "^8.8.4",
+    "htmlhint": "^1.1.4",
+    "serve": "^14.2.3",
+    "stylelint": "^16.6.1",
+    "stylelint-config-standard": "^36.0.1"
+  }
+}
