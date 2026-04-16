@@ -2,8 +2,21 @@
 """UserPromptSubmit hook — logs each user prompt to chat-amendments/<date>_<session>.md."""
 import json
 import os
+import subprocess
 import sys
 from datetime import datetime, timezone
+
+
+def get_git_hash(cwd):
+    """Return the short git commit hash, or 'unknown' on failure."""
+    try:
+        result = subprocess.run(
+            ["git", "rev-parse", "--short", "HEAD"],
+            capture_output=True, text=True, cwd=cwd, timeout=5
+        )
+        return result.stdout.strip() if result.returncode == 0 else "unknown"
+    except (OSError, subprocess.TimeoutExpired):
+        return "unknown"
 
 
 def main():
@@ -37,6 +50,7 @@ def main():
     filename = f"{date_str}_{short_id}.md"
     filepath = os.path.join(amendments_dir, filename)
 
+    commit_hash = get_git_hash(cwd)
     is_new = not os.path.exists(filepath)
 
     with open(filepath, "a") as f:
@@ -45,7 +59,7 @@ def main():
             f.write(f"**Session:** `{session_id}`\n\n")
             f.write("---\n\n")
 
-        f.write(f"### 🧑 User — {time_str}\n\n")
+        f.write(f"### 🧑 User — {time_str} (`{commit_hash}`)\n\n")
         f.write(f"{prompt}\n\n")
 
     print(json.dumps({"continue": True}))

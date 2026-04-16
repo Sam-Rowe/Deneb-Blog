@@ -2,8 +2,21 @@
 """Stop hook — captures the full conversation transcript to chat-amendments/<date>_<session>.md."""
 import json
 import os
+import subprocess
 import sys
 from datetime import datetime, timezone
+
+
+def get_git_hash(cwd):
+    """Return the short git commit hash, or 'unknown' on failure."""
+    try:
+        result = subprocess.run(
+            ["git", "rev-parse", "--short", "HEAD"],
+            capture_output=True, text=True, cwd=cwd, timeout=5
+        )
+        return result.stdout.strip() if result.returncode == 0 else "unknown"
+    except (OSError, subprocess.TimeoutExpired):
+        return "unknown"
 
 
 def format_transcript(transcript):
@@ -70,9 +83,11 @@ def main():
         except (json.JSONDecodeError, OSError):
             transcript = None
 
+    commit_hash = get_git_hash(cwd)
+
     with open(filepath, "a") as f:
         f.write("---\n\n")
-        f.write("## Full Conversation Transcript\n\n")
+        f.write(f"## Full Conversation Transcript (`{commit_hash}`)\n\n")
 
         if transcript:
             f.write(format_transcript(transcript))
