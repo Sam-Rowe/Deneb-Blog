@@ -45,6 +45,7 @@ All design decisions must follow the project's design specification:
 ## Validation Workflow
 
 - Prefer the workspace skills in `.github/skills/` for routine validation tasks:
+	- `/run-validation`
 	- `/run-spellcheck`
 	- `/run-lint`
 	- `/run-tests`

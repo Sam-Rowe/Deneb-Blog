@@ -71,6 +71,7 @@ npm run spellcheck
 
 This repository includes workspace-level GitHub Copilot skills for common validation tasks under `.github/skills/`.
 
+- `/run-validation` runs the full local validation flow: HTML lint, CSS lint, spellcheck, and Playwright tests.
 - `/run-spellcheck` runs the checked-in spellcheck workflow and checks for local prerequisites.
 - `/run-lint` runs the HTML and CSS lint scripts and checks for local prerequisites.
 - `/run-tests` runs the Playwright test workflows and checks for local prerequisites.
