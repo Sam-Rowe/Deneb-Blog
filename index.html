@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Deneb — Sam Rowe's AI-native editorial tech blog. Exploring the software development lifecycle through an honest, opinionated AI lens.">
+  <meta name="author" content="Sam Rowe">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Deneb — AI-Native Tech Blog">
+  <meta property="og:description" content="Exploring the software development lifecycle through an honest, opinionated AI lens.">
+  <meta property="og:type" content="website">
+
+  <title>Deneb — AI-Native Tech Blog</title>
+
+  <!-- Preconnect for Google Fonts (non-render-blocking) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Critical inline styles: prevents flash of unstyled content -->
+  <style>
+    :root { --bg-primary: #0f1115; }
+    body { background-color: var(--bg-primary); margin: 0; }
+    [data-theme="light"] { --bg-primary: #f8f9fb; }
+  </style>
+
+  <!-- Theme script: runs before body to prevent flash of wrong theme -->
+  <script src="assets/js/theme.js"></script>
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- Fonts: loaded as non-render-blocking via print media trick -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap"
+    media="print"
+    onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap">
+  </noscript>
+</head>
+<body>
+
+  <!-- Skip navigation link (accessibility) -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ============================================================
+       Site Header
+  ============================================================ -->
+  <header class="site-header" role="banner">
+    <nav class="nav-container" aria-label="Main navigation">
+      <a class="nav-logo" href="index.html" aria-label="Deneb — go to homepage">
+        <span class="logo-star" aria-hidden="true">✦</span>
+        Deneb
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        type="button"
+        aria-label="Switch to light theme">
+        <span class="theme-icon" aria-hidden="true">☀</span>
+        <span class="theme-label">Light</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ============================================================
+       Main Content
+  ============================================================ -->
+  <main id="main-content">
+
+    <!-- Hero: Featured post showcase -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Latest Post</p>
+        <h1 class="hero-heading" id="hero-heading">
+          <a href="posts/2025-01-15-hello-deneb.html">
+            Hello, Deneb: What This Blog Is Here to Do
+          </a>
+        </h1>
+        <p class="hero-description">
+          An AI-native tech blog exploring the software development lifecycle through
+          an honest, opinionated lens. Part sci-fi, part reality — entirely grounded.
+        </p>
+        <div class="hero-meta">
+          <time datetime="2025-01-15">15 January 2025</time>
+          <span aria-hidden="true">·</span>
+          <span>5 min read</span>
+          <span class="ai-badge" aria-label="AI-assisted content">AI-assisted</span>
+        </div>
+        <a href="posts/2025-01-15-hello-deneb.html" class="btn btn-primary">
+          Read the post
+        </a>
+      </div>
+
+      <!-- Decorative asymmetric visual element -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="star-ring"></div>
+      </div>
+    </section>
+
+    <!-- All Posts grid -->
+    <section class="posts-section" aria-labelledby="posts-heading">
+      <div class="section-header">
+        <h2 class="section-heading" id="posts-heading">All Posts</h2>
+      </div>
+
+      <div class="posts-grid">
+
+        <!-- Post: Hello Deneb (featured) -->
+        <article class="post-card post-card--featured">
+          <div class="post-card__meta">
+            <time datetime="2025-01-15">15 Jan 2025</time>
+            <span aria-hidden="true">·</span>
+            <span>5 min read</span>
+          </div>
+          <h3 class="post-card__title">
+            <a href="posts/2025-01-15-hello-deneb.html">
+              Hello, Deneb: What This Blog Is Here to Do
+            </a>
+          </h3>
+          <p class="post-card__description">
+            An introduction to Deneb — why it exists, what it stands for, and what
+            honest AI-assisted writing looks like in practice. The internet has enough
+            AI hype. This is something different.
+          </p>
+          <div class="post-card__footer">
+            <div class="post-card__tags" aria-label="Tags">
+              <span class="tag">Meta</span>
+              <span class="tag">AI</span>
+              <span class="tag">SDLC</span>
+            </div>
+            <span class="ai-badge" aria-label="AI-assisted content">AI-assisted</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       Site Footer
+  ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+
+      <div class="footer-brand">
+        <p class="footer-logo">
+          <span class="logo-star" aria-hidden="true">✦</span>
+          Deneb
+        </p>
+        <p class="footer-disclaimer">
+          The views and opinions expressed on this blog are entirely my own personal
+          thoughts and ideas. They do not represent, reflect, or relate to the views
+          of any current or past employers.
+        </p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <p class="footer-nav-heading">Links</p>
+        <a href="https://github.com/Sam-Rowe"
+           rel="noopener noreferrer"
+           target="_blank"
+           aria-label="Sam Rowe on GitHub (opens in new tab)">
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/samuelcprowe/"
+           rel="noopener noreferrer"
+           target="_blank"
+           aria-label="Sam Rowe on LinkedIn (opens in new tab)">
+          LinkedIn
+        </a>
+        <a href="about.html">About</a>
+        <a href="index.html">Home</a>
+      </nav>
+
+      <p class="footer-bottom">
+        <small>© 2026 Sam Rowe. Built without frameworks, refined with AI.</small>
+      </p>
+
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -42,6 +42,18 @@ All design decisions must follow the project's design specification:
 - JS is used only for theme toggle and optional AI interactions.
 - No heavy frameworks or build tools required.
 
+## Validation Workflow
+
+- Prefer the workspace skills in `.github/skills/` for routine validation tasks:
+	- `/run-validation`
+	- `/run-spellcheck`
+	- `/run-lint`
+	- `/run-tests`
+- Always use the npm scripts in `package.json` for validation instead of global CLI tools.
+- On macOS, if `node` or `npm` is missing, prefer `brew install node` before attempting validation.
+- If Homebrew is missing, ask before installing it because that changes the local machine outside the repository.
+- If Playwright browsers are missing locally, install them before testing.
+
 ## When Generating Code
 
 - Use semantic HTML elements (`<article>`, `<nav>`, `<section>`, `<header>`, `<footer>`).
