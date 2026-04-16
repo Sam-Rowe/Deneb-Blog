@@ -10,6 +10,8 @@ on:
 # Grant the minimum required permissions globally (least privilege)
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 # Only allow one concurrent deployment; cancel in-progress if a new one starts
 concurrency:
@@ -80,7 +82,7 @@ jobs:
           ls -la dist/
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: dist/
 
@@ -101,4 +103,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
