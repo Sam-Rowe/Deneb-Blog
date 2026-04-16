@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Multiple Anchor Points: How to Ground AI Agents and Get Better Code — Learn how providing multiple reference points to AI agents dramatically improves the accuracy and reliability of generated code.">
+  <meta name="author" content="Sam Rowe">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Multiple Anchor Points: How to Ground AI Agents and Get Better Code">
+  <meta property="og:description" content="Learn how providing multiple reference points to AI agents dramatically improves the accuracy and reliability of generated code.">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2025-04-16">
+  <meta property="article:author" content="Sam Rowe">
+
+  <title>Multiple Anchor Points: How to Ground AI Agents and Get Better Code — Deneb</title>
+
+  <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Critical inline styles -->
+  <style>
+    :root { --bg-primary: #0f1115; }
+    body { background-color: var(--bg-primary); margin: 0; }
+    [data-theme="light"] { --bg-primary: #f8f9fb; }
+  </style>
+
+  <script src="../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap"
+    media="print"
+    onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap">
+  </noscript>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-container" aria-label="Main navigation">
+      <a class="nav-logo" href="../index.html" aria-label="Deneb — go to homepage">
+        <span class="logo-star" aria-hidden="true">✦</span>
+        Deneb
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        type="button"
+        aria-label="Switch to light theme">
+        <span class="theme-icon" aria-hidden="true">☀</span>
+        <span class="theme-label">Light</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div class="article-page">
+
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">Multiple Anchor Points</span>
+      </nav>
+
+      <article>
+        <header class="article-header">
+          <h1 class="article-title">Multiple Anchor Points: How to Ground AI Agents and Get Better Code</h1>
+
+          <div class="article-meta">
+            <time datetime="2025-04-16">16 April 2025</time>
+            <span aria-hidden="true">·</span>
+            <span>8 min read</span>
+            <span aria-hidden="true">·</span>
+            <span class="ai-badge" aria-label="AI-assisted content">AI-assisted</span>
+          </div>
+        </header>
+
+        <div class="article-body">
+
+          <p>
+            AI agents write code confidently. That confidence is not always warranted.
+            The gap between a plausible-looking function and one that actually fits your
+            system is where most AI-assisted development goes wrong — and it is almost
+            never the model's fault. It is a context problem.
+          </p>
+
+          <p>
+            Give an AI agent one reference point and it will produce something generic.
+            Give it two and you get a straight line between them — closer, but still
+            approximate. Give it three or more and something changes: the agent can
+            triangulate. It can identify contradictions, fill gaps, and produce output
+            that is genuinely grounded in your system rather than in a statistical
+            average of every system it has ever seen.
+          </p>
+
+          <p>
+            This is the idea behind multiple anchor points — and once you understand it,
+            it changes how you work with AI agents at every stage of the SDLC.
+          </p>
+
+          <h2>The Geometry of Context</h2>
+
+          <p>
+            Think about how you navigate in three dimensions. Two fixed points give you
+            a line — useful, but it does not tell you where you actually are. A third
+            point breaks the ambiguity. A fourth eliminates it further. This is how GPS
+            works. This is how sonar works. And this, more or less, is how AI agents
+            produce better output when given richer context.
+          </p>
+
+          <p>
+            In software development, every artefact you create is a potential anchor
+            point. The question is which ones you choose to share with the agent, and
+            in what combination.
+          </p>
+
+          <div class="ai-callout" role="note" aria-label="AI Insight">
+            <p class="ai-callout__label">Insight</p>
+            <p>
+              The single most common mistake when using AI agents for code generation is
+              treating them like a search engine — asking a question and hoping for a
+              perfect answer. They are not search engines. They are completion engines.
+              What you put in shapes what comes out far more than the model's raw
+              capability.
+            </p>
+            <p class="confidence">Confidence: High</p>
+          </div>
+
+          <h2>What Counts as an Anchor Point?</h2>
+
+          <p>
+            An anchor point is any artefact that constrains the solution space. It does
+            not have to be code. It does not have to be complete. It just has to be
+            specific — specific enough that the agent can use it to rule things out as
+            well as rule things in.
+          </p>
+
+          <h3>Unit Tests</h3>
+
+          <p>
+            A well-written test suite is one of the most powerful anchors available.
+            Tests encode the expected behaviour of your system in machine-readable form.
+            When you give an AI agent your existing tests alongside a new requirement,
+            you are not just describing what you want — you are giving the agent a way
+            to verify whether its output is consistent with what already exists.
+          </p>
+
+          <p>
+            Even a small set of unit tests changes the character of generated code
+            dramatically. The agent stops producing plausible generalities and starts
+            producing something that has to pass specific assertions. That constraint is
+            immensely valuable.
+          </p>
+
+          <h3>Existing Code and Codebases</h3>
+
+          <p>
+            Sharing relevant parts of your codebase — especially for migrations and
+            refactors — gives the agent a concrete style reference. It will match your
+            naming conventions, your error handling patterns, your abstractions. Without
+            this, the agent defaults to whatever pattern is most common in its training
+            data, which may be perfectly reasonable code, but not <em>your</em> code.
+          </p>
+
+          <p>
+            For large migrations, sharing the old implementation alongside the new
+            interface is particularly effective. The agent can see what the code does,
+            what it needs to become, and what constraints it has to respect throughout
+            the transition.
+          </p>
+
+          <h3>Documentation</h3>
+
+          <p>
+            Architecture decision records (ADRs), README files, runbooks, and design
+            documents all encode context that does not appear in code. Why a technology
+            was chosen. What alternatives were rejected and why. What constraints the
+            team is working under. This kind of context prevents the agent from
+            suggesting perfectly valid solutions that are wrong for your situation.
+          </p>
+
+          <h3>API Contracts</h3>
+
+          <p>
+            OpenAPI specifications, GraphQL schemas, Protobuf definitions — these are
+            exact, machine-readable descriptions of interfaces. When generating code
+            that interacts with an API, sharing the contract is the difference between
+            getting something that looks right and getting something that will actually
+            run without modification.
+          </p>
+
+          <p>
+            API contracts are particularly effective anchor points because they are
+            already structured in a way agents understand well. An OpenAPI spec is not
+            prose — it is a schema, and schemas are close to what the agent natively
+            reasons about.
+          </p>
+
+          <h3>Coding Standards and Style Guides</h3>
+
+          <p>
+            Your team's conventions — whether they live in a linting configuration, a
+            contributing guide, or an internal wiki — define the rules the agent needs
+            to follow. Without them, the agent will write valid code that fails your
+            code review for purely stylistic reasons. With them, the gap between
+            generated code and mergeable code closes significantly.
+          </p>
+
+          <div class="ai-callout" role="note" aria-label="AI Insight">
+            <p class="ai-callout__label">Insight</p>
+            <p>
+              Linting configuration files are underused anchor points. An ESLint config,
+              a Prettier config, a Checkstyle file — these are precise, structured
+              descriptions of your style requirements. Agents can read them directly and
+              apply them. There is no need to describe your preferences in prose when
+              you already have them encoded.
+            </p>
+            <p class="confidence">Confidence: High</p>
+          </div>
+
+          <h3>Planning Documentation</h3>
+
+          <p>
+            Tickets, user stories, acceptance criteria, and technical design documents
+            carry intent that code alone cannot express. Sharing a well-written ticket
+            alongside the implementation task gives the agent the "why" behind the
+            "what". That context matters most when there are multiple reasonable ways
+            to solve a problem — the agent can use the intent to choose between them
+            rather than picking arbitrarily.
+          </p>
+
+          <h3>User Feedback and Bug Reports</h3>
+
+          <p>
+            When fixing bugs or improving features, raw user feedback and bug reports
+            are valuable anchor points. They describe the actual failure mode, not an
+            abstraction of it. Sharing a well-documented bug report alongside the
+            relevant code gives the agent a concrete problem to solve rather than a
+            hypothetical one.
+          </p>
+
+          <h3>Usage Data and Observability</h3>
+
+          <p>
+            Logs, traces, metrics, and error rates tell the agent how the system
+            actually behaves in production — not how it was designed to behave. This is
+            particularly useful for performance work and reliability improvements. A
+            slow query plan, a spike in error rates, a flame graph — these anchor the
+            agent in the real system rather than the idealised one.
+          </p>
+
+          <h2>The Combination is What Matters</h2>
+
+          <p>
+            Each anchor point narrows the solution space from a different angle. Unit
+            tests constrain behaviour. Existing code constrains style. API contracts
+            constrain interfaces. Planning documents constrain intent. The power of the
+            approach comes from combining them — not from any one artefact in isolation.
+          </p>
+
+          <p>
+            A practical way to think about this: before handing a task to an AI agent,
+            ask yourself what artefacts exist in your system that are relevant to this
+            change. Gather them. Share them. The overhead is small and the improvement
+            in output quality is significant.
+          </p>
+
+          <h2>Getting Started</h2>
+
+          <p>
+            You do not need to change your tools or your workflow dramatically to apply
+            this. Start with the artefacts you already have:
+          </p>
+
+          <ul>
+            <li>
+              <strong>New feature?</strong> Share the ticket, the relevant existing code,
+              and any related tests. Three anchor points, immediately.
+            </li>
+            <li>
+              <strong>Bug fix?</strong> Share the bug report, the failing test (or write
+              one first), and the code under investigation.
+            </li>
+            <li>
+              <strong>Migration?</strong> Share the old implementation, the new interface
+              contract, and a migration guide if one exists.
+            </li>
+            <li>
+              <strong>API integration?</strong> Share the OpenAPI spec, a usage example
+              from the existing codebase, and the error handling conventions your team
+              follows.
+            </li>
+            <li>
+              <strong>Performance improvement?</strong> Share the slow code, the relevant
+              metrics or trace, and the performance budget or target.
+            </li>
+          </ul>
+
+          <p>
+            In each case, you are giving the agent a geometry to work within — not just
+            a task to complete. That difference in framing consistently produces better
+            results than any amount of prompt engineering applied to a single input.
+          </p>
+
+          <div class="ai-callout" role="note" aria-label="AI Insight">
+            <p class="ai-callout__label">Insight</p>
+            <p>
+              Writing the failing test before generating the implementation is one of
+              the highest-leverage habits in AI-assisted development. It gives the agent
+              a verifiable target, keeps the human in control of the requirements, and
+              makes the generated code immediately testable. Test-driven development was
+              always good practice. With AI agents, it becomes essential.
+            </p>
+            <p class="confidence">Confidence: High</p>
+          </div>
+
+          <h2>The Deeper Point</h2>
+
+          <p>
+            There is a subtler benefit to the multiple anchor points approach that is
+            worth naming explicitly: it forces clarity. To gather your anchor points,
+            you have to know what the task actually requires. You have to have a test
+            that defines success. You have to understand the existing code well enough
+            to find the relevant parts. You have to read the ticket carefully enough to
+            extract the intent.
+          </p>
+
+          <p>
+            This is not overhead — it is the work. The AI agent does not remove the
+            need to understand your system. It amplifies what you already understand.
+            The more precisely you can define the problem, the more precisely the agent
+            can help you solve it. Multiple anchor points are as much a thinking
+            discipline as a prompting technique.
+          </p>
+
+          <p>
+            Ground the agent. Ground yourself. The output improves for both reasons.
+          </p>
+
+        </div>
+
+        <footer class="article-footer">
+          <a href="../index.html" class="btn btn-primary">← Back to all posts</a>
+          <div class="post-card__tags" aria-label="Tags">
+            <span class="tag">AI</span>
+            <span class="tag">SDLC</span>
+            <span class="tag">Agents</span>
+          </div>
+        </footer>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+
+      <div class="footer-brand">
+        <p class="footer-logo">
+          <span class="logo-star" aria-hidden="true">✦</span>
+          Deneb
+        </p>
+        <p class="footer-disclaimer">
+          The views and opinions expressed on this blog are entirely my own personal
+          thoughts and ideas. They do not represent, reflect, or relate to the views
+          of any current or past employers.
+        </p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <p class="footer-nav-heading">Links</p>
+        <a href="https://github.com/Sam-Rowe"
+           rel="noopener noreferrer"
+           target="_blank"
+           aria-label="Sam Rowe on GitHub (opens in new tab)">
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/samuelcprowe/"
+           rel="noopener noreferrer"
+           target="_blank"
+           aria-label="Sam Rowe on LinkedIn (opens in new tab)">
+          LinkedIn
+        </a>
+        <a href="../about.html">About</a>
+        <a href="../index.html">Home</a>
+      </nav>
+
+      <p class="footer-bottom">
+        <small>© 2026 Sam Rowe. Built without frameworks, refined with AI.</small>
+      </p>
+
+    </div>
+  </footer>
+
+</body>
+</html>

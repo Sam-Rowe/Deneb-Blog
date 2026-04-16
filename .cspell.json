@@ -38,7 +38,14 @@
     "Scannable",
     "scannable",
     "Glassmorphism",
-    "glassmorphism"
+    "glassmorphism",
+    "triangulate",
+    "ADRs",
+    "OpenAPI",
+    "GraphQL",
+    "Protobuf",
+    "runbooks",
+    "flame"
   ],
   "ignorePaths": [
     "node_modules/**",
