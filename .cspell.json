@@ -51,6 +51,7 @@
     "node_modules/**",
     "playwright-report/**",
     "test-results/**",
+    "chat-amendments/**",
     ".git/**",
     "package-lock.json"
   ]

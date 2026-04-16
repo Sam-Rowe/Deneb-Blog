@@ -151,10 +151,17 @@
 
           <p>
             A well-written test suite is one of the most powerful anchors available.
-            Tests encode the expected behaviour of your system in machine-readable form.
-            When you give an AI agent your existing tests alongside a new requirement,
-            you are not just describing what you want — you are giving the agent a way
-            to verify whether its output is consistent with what already exists.
+            Tests are deterministic — they pass or they fail, every time, with no
+            ambiguity. That determinism directly counteracts the non-deterministic
+            nature of the underlying large language model that powers the agent. The
+            model may produce slightly different code on each run, but a test suite
+            does not  — A test suite gives a binary signal about correctness. When you give
+            an AI agent your existing tests alongside a new requirement, you are not
+            just describing what you want — you are giving the agent a repeatable,
+            machine-verifiable standard that holds its output accountable regardless
+            of the probabilistic path it took to get there.
+
+            ( being the eternal optimist I am over simplifying and ignoring flaky tests that may fail non-deterministically, but the point still stands that tests are a much more reliable anchor than prose descriptions of behaviour )
           </p>
 
           <p>
@@ -168,7 +175,7 @@
 
           <p>
             Sharing relevant parts of your codebase — especially for migrations and
-            refactors — gives the agent a concrete style reference. It will match your
+            refactors — gives the agent a concrete style reference. If guided too, it can match your
             naming conventions, your error handling patterns, your abstractions. Without
             this, the agent defaults to whatever pattern is most common in its training
             data, which may be perfectly reasonable code, but not <em>your</em> code.
@@ -195,17 +202,22 @@
 
           <p>
             OpenAPI specifications, GraphQL schemas, Protobuf definitions — these are
-            exact, machine-readable descriptions of interfaces. When generating code
-            that interacts with an API, sharing the contract is the difference between
-            getting something that looks right and getting something that will actually
-            run without modification.
+            exact, machine-readable descriptions of interfaces. Like tests, they offer
+            a deterministic way to measure whether generated code is valid. Either the
+            code conforms to the contract it must expose, or it correctly consumes the
+            contract it must connect to — there is no grey area. That binary
+            pass-or-fail quality makes API contracts one of the strongest anchors you
+            can provide, because the agent's output can be validated against them
+            mechanically rather than judged subjectively.
           </p>
 
           <p>
             API contracts are particularly effective anchor points because they are
             already structured in a way agents understand well. An OpenAPI spec is not
             prose — it is a schema, and schemas are close to what the agent natively
-            reasons about.
+            reasons about. When generating code that interacts with an API, sharing the
+            contract is the difference between getting something that looks right and
+            getting something that will actually run without modification.
           </p>
 
           <h3>Coding Standards and Style Guides</h3>
