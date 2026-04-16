@@ -73,12 +73,20 @@
 
     // Listen for system preference changes
     if (window.matchMedia) {
-      window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function (e) {
+      var mediaQuery = window.matchMedia('(prefers-color-scheme: light)');
+      var handleSystemThemeChange = function (e) {
         // Only update if user hasn't explicitly set a preference
         if (!getStoredTheme()) {
-          applyTheme(e.matches ? LIGHT : DARK);
+          var matches = e && typeof e.matches === 'boolean' ? e.matches : mediaQuery.matches;
+          applyTheme(matches ? LIGHT : DARK);
         }
-      });
+      };
+
+      if (typeof mediaQuery.addEventListener === 'function') {
+        mediaQuery.addEventListener('change', handleSystemThemeChange);
+      } else if (typeof mediaQuery.addListener === 'function') {
+        mediaQuery.addListener(handleSystemThemeChange);
+      }
     }
   });
 }());

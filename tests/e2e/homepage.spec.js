@@ -50,7 +50,7 @@ test.describe('Homepage', () => {
 
   test('posts grid shows at least one post card', async ({ page }) => {
     const cards = page.locator('.post-card');
-    await expect(cards).toHaveCount(1);
+    await expect(cards).not.toHaveCount(0);
   });
 
   test('post card has a linked title', async ({ page }) => {

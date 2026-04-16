@@ -82,7 +82,8 @@ test.describe('Navigation flow', () => {
     await page.goto('/posts/2025-01-15-hello-deneb.html');
     await page.locator('.article-footer .btn-primary').click();
     // Accept / or /index.html
-    await expect(page).toHaveURL(/localhost:3000\/?([^/]*)?$/);
+    // Accept / or /index.html without hard-coding the origin
+    await expect(page).toHaveURL(/\/(?:index\.html)?$/);
   });
 
   test('active nav item is marked with aria-current', async ({ page }) => {
