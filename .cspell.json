@@ -38,12 +38,20 @@
     "Scannable",
     "scannable",
     "Glassmorphism",
-    "glassmorphism"
+    "glassmorphism",
+    "triangulate",
+    "ADRs",
+    "OpenAPI",
+    "GraphQL",
+    "Protobuf",
+    "runbooks",
+    "flame"
   ],
   "ignorePaths": [
     "node_modules/**",
     "playwright-report/**",
     "test-results/**",
+    "chat-amendments/**",
     ".git/**",
     "package-lock.json"
   ]
