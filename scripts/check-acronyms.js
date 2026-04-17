@@ -39,6 +39,14 @@ const REQUIRED_ACRONYMS = [
 ];
 
 // ---------------------------------------------------------------------------
+// Constants
+// ---------------------------------------------------------------------------
+
+/** Characters of surrounding text shown in error context snippets. */
+const CONTEXT_CHARS_BEFORE = 40;
+const CONTEXT_CHARS_AFTER  = 60;
+
+// ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
 
@@ -59,21 +67,26 @@ function findHtmlFiles(dir) {
 
 /**
  * Extract a plain-text representation of an HTML file, stripping tags,
- * scripts, styles, and HTML comments.  Only entity-decodes the most common
- * HTML entities so the acronym patterns still match exactly.
+ * scripts, styles, and HTML comments.
+ *
+ * Note: entity decoding is intentionally limited to the most common HTML
+ * entities (&lt; &gt; &quot; &#39; &nbsp; &amp;).  Rare or numeric entities
+ * are left as-is; they do not affect acronym detection in practice.
+ * `&amp;` is decoded last to avoid double-unescaping sequences like
+ * `&amp;lt;` (which should decode to `&lt;`, not `<`).
  */
 function extractText(html) {
   return html
-    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi,   ' ')
+    .replace(/<script[^>]*>[\s\S]*?<\/script\s*>/gi, ' ')
+    .replace(/<style[^>]*>[\s\S]*?<\/style\s*>/gi,   ' ')
     .replace(/<!--[\s\S]*?-->/g, ' ')
     .replace(/<[^>]+>/g, ' ')
-    .replace(/&amp;/g,  '&')
     .replace(/&lt;/g,   '<')
     .replace(/&gt;/g,   '>')
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g,  "'")
     .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g,  '&') // must be last to avoid double-unescaping
     .replace(/\s+/g,    ' ')
     .trim();
 }
@@ -98,8 +111,12 @@ function findUnexpandedFirstUse(text, { pattern, expanded }) {
 
   // Case 2 — full-form-first, acronym introduced inside parentheses.
   // e.g. "Architecture decision records (ADRs)"
-  // The opening parenthesis immediately precedes the acronym in extracted text.
-  if (firstBare.index > 0 && text[firstBare.index - 1] === '(') return null;
+  // The opening parenthesis immediately precedes the acronym AND a closing
+  // parenthesis immediately follows it, confirming this is a proper expansion.
+  if (firstBare.index > 0 && text[firstBare.index - 1] === '(') {
+    const afterAcronym = text.slice(firstBare.index + firstBare[0].length);
+    if (/^\s*\)/.test(afterAcronym)) return null;
+  }
 
   return firstBare.index;
 }
@@ -127,8 +144,8 @@ for (const filePath of htmlFiles) {
     if (errorIndex === null) continue;
 
     const snippet = text.substring(
-      Math.max(0, errorIndex - 40),
-      errorIndex + acronym.name.length + 60,
+      Math.max(0, errorIndex - CONTEXT_CHARS_BEFORE),
+      errorIndex + acronym.name.length + CONTEXT_CHARS_AFTER,
     );
 
     console.error(`✗  ${relPath}`);
