@@ -10,6 +10,7 @@
     "test:report": "playwright show-report",
     "lint:html": "htmlhint \"**/*.html\" --ignore \"node_modules/**\"",
     "lint:css": "stylelint \"assets/css/**/*.css\"",
+    "lint:acronyms": "node scripts/check-acronyms.js",
     "spellcheck": "cspell \"**/*.{html,md,css,js}\" --no-progress",
     "serve": "serve . -l 3000"
   },
