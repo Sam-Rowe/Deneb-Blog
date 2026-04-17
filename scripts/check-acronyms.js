@@ -143,9 +143,14 @@ for (const filePath of htmlFiles) {
     const errorIndex = findUnexpandedFirstUse(text, acronym);
     if (errorIndex === null) continue;
 
+    const snippetMatch = text.slice(errorIndex).match(acronym.pattern);
+    const matchedLength = snippetMatch && snippetMatch.index === 0
+      ? snippetMatch[0].length
+      : acronym.name.length;
+
     const snippet = text.substring(
       Math.max(0, errorIndex - CONTEXT_CHARS_BEFORE),
-      errorIndex + acronym.name.length + CONTEXT_CHARS_AFTER,
+      errorIndex + matchedLength + CONTEXT_CHARS_AFTER,
     );
 
     console.error(`✗  ${relPath}`);
