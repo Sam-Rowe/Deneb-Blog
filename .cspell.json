@@ -45,7 +45,8 @@
     "GraphQL",
     "Protobuf",
     "runbooks",
-    "flame"
+    "flame",
+    "quot"
   ],
   "ignorePaths": [
     "node_modules/**",
