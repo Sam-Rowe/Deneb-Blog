@@ -91,12 +91,12 @@
 
           <p>
             Most software was not designed with AI agents in mind. It was designed for
-            humans — humans who can hold large amounts of implicit context, who can
-            navigate sprawling inheritance trees, who can intuit the side effects of a
+            humans — humans can intuit implicit context, who can
+            navigate sprawling inheritance trees because of an unwritten logical pattern, who can intuit the side effects of a
             change across a tangled codebase because they wrote it. AI agents cannot
-            do this reliably. The context window has a hard ceiling. Implicit coupling
-            is invisible to them. And the bigger the unit of change, the higher the
-            risk of unintended consequences that the agent has no way to anticipate.
+            do this reliably. The context window of AI has a hard ceiling (thought that is continuing to increase) and the larger the context the more hallucinations occur. Implicit coupling
+            is invisible to AI. And the bigger the unit of change, the higher the
+            risk of unintended consequences that the AI agent has no way to predict with reliability.
           </p>
 
           <p>
@@ -147,11 +147,11 @@
 
           <p>
             An AI agent's ability to reason accurately about a codebase is bounded by
-            what it can see. Context windows have grown significantly in recent years,
+            what it can see and test. Context windows have grown significantly in recent years,
             but larger windows do not solve the problem — they defer it. In practice,
             the quality of reasoning degrades as the amount of context increases,
             especially when that context contains implicit relationships that are not
-            explicitly declared anywhere.
+            explicitly declared anywhere and a lack of determinism in the code that makes it harder for the agent to infer the correct behaviour.
           </p>
 
           <p>
@@ -159,8 +159,7 @@
             and global configuration creates exactly this problem. The agent can read
             the function it is asked to change. It cannot reliably infer every caller,
             every side effect, every downstream dependency that could be affected. And
-            it will not always tell you when it is uncertain. It will produce plausible,
-            well-structured code that is wrong in ways that only surface later.
+            it will not always tell you when it is uncertain as we have all seen in practice where AI Agents confidently produce incorrect output.
           </p>
 
           <div class="ai-callout" role="note" aria-label="AI Insight">
@@ -214,7 +213,7 @@
             Zoom in to a single unit: you see its inputs, its outputs, its tests, its
             contract. Zoom out to the system level: you see how units compose, what
             flows between them, where the integration points are. The two views are
-            consistent. Nothing important lives only in the gap between them.
+            consistent. Nothing important lives implicit but unarticulated in the gaps between them.
           </p>
 
           <p>
@@ -249,8 +248,7 @@
             the agent to understand superclass behaviour. Mutable shared state means
             a change in one place has non-local effects. The abstractions that make
             OOP powerful for human reasoning — encapsulation, polymorphism,
-            inheritance — create implicit context that agents must reconstruct from
-            the code. That reconstruction is unreliable.
+            inheritance — create implicit context that agents must reason about without explicit code to tweak the probabilities of the next token being correct.
           </p>
 
           <p>
@@ -298,7 +296,7 @@
             agent gets the function, the input schema, the output schema, and the
             existing tests. The task is bounded. The correctness criteria are
             explicit. The generated code can be validated against the contract
-            mechanically.
+            deterministically.
           </p>
 
           <p>
@@ -314,7 +312,7 @@
             hundreds of nano-functions with no coherent model of the domain becomes
             harder to reason about, not easier. Operational overhead grows.
             Orchestration complexity increases. Debugging distributed failures requires
-            tooling and discipline that many teams underestimate.
+            tooling and discipline that many teams underestimate. Maintaining explicit contracts is work. Maintaining dependencies in a sprawling number of small fragments is more work unless automated effectively. There are real costs to this approach.
           </p>
 
           <p>
@@ -326,8 +324,7 @@
           </p>
 
           <p>
-            A well-maintained monolith can still work in this model, provided it is
-            small enough to be fully understood, has strong domain documentation, and
+            A well-maintained monolith can still work in this model, provided it has strong domain documentation, and
             enforces a clear policy for how and when large files are split. The
             monolith is not the enemy. Implicit, unmanaged coupling is.
           </p>
@@ -388,8 +385,8 @@
           </p>
 
           <p>
-            If you have run experiments, seen this succeed, or seen it fail — the
-            comments are open. The argument gets sharper with evidence.
+            If you have run experiments, seen this succeed, or seen it fail — Open an issue in the repo to share your experience or DM me on LinkedIn/X. 
+            The argument gets sharper with evidence.
           </p>
 
         </div>
