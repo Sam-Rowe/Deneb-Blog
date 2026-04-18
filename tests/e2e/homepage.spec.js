@@ -39,7 +39,7 @@ test.describe('Homepage', () => {
     const hero = page.locator('section.hero');
     await expect(hero).toBeVisible();
     await expect(hero.locator('h1')).toBeVisible();
-    await expect(hero.locator('h1')).toContainText('Multiple Anchor Points');
+    await expect(hero.locator('h1')).toContainText('Boundaries First');
   });
 
   test('hero section has a call-to-action link', async ({ page }) => {

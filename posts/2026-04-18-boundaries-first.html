@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Boundaries First: How Software Architecture Shapes What AI Agents Can Deliver — A look at why small, contract-bound, independently operable units make AI-assisted software delivery faster, more reliable, and easier to maintain.">
+  <meta name="author" content="Sam Rowe">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Boundaries First: How Software Architecture Shapes What AI Agents Can Deliver">
+  <meta property="og:description" content="A look at why small, contract-bound, independently operable units make AI-assisted software delivery faster, more reliable, and easier to maintain.">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-04-18">
+  <meta property="article:author" content="Sam Rowe">
+
+  <title>Boundaries First: How Software Architecture Shapes What AI Agents Can Deliver — Deneb</title>
+
+  <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Critical inline styles -->
+  <style>
+    :root { --bg-primary: #0f1115; }
+    body { background-color: var(--bg-primary); margin: 0; }
+    [data-theme="light"] { --bg-primary: #f8f9fb; }
+  </style>
+
+  <script src="../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap"
+    media="print"
+    onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap">
+  </noscript>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-container" aria-label="Main navigation">
+      <a class="nav-logo" href="../index.html" aria-label="Deneb — go to homepage">
+        <span class="logo-star" aria-hidden="true">✦</span>
+        Deneb
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        type="button"
+        aria-label="Switch to light theme">
+        <span class="theme-icon" aria-hidden="true">☀</span>
+        <span class="theme-label">Light</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div class="article-page">
+
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">Boundaries First</span>
+      </nav>
+
+      <article>
+        <header class="article-header">
+          <h1 class="article-title">Boundaries First: How Software Architecture Shapes What AI Agents Can Deliver</h1>
+
+          <div class="article-meta">
+            <time datetime="2026-04-18">18 April 2026</time>
+            <span aria-hidden="true">·</span>
+            <span>8 min read</span>
+            <span aria-hidden="true">·</span>
+            <span class="ai-badge" aria-label="AI-assisted content">AI-assisted</span>
+          </div>
+        </header>
+
+        <div class="article-body">
+
+          <p>
+            Most software was not designed with AI agents in mind. It was designed for
+            humans — humans can intuit implicit context, who can
+            navigate sprawling inheritance trees because of an unwritten logical pattern, who can intuit the side effects of a
+            change across a tangled codebase because they wrote it. AI agents cannot
+            do this reliably. The context window of AI has a hard ceiling (thought that is continuing to increase) and the larger the context the more hallucinations occur. Implicit coupling
+            is invisible to AI. And the bigger the unit of change, the higher the
+            risk of unintended consequences that the AI agent has no way to predict with reliability.
+          </p>
+
+          <p>
+            This leads to a hypothesis worth testing: software architectures built
+            around small, deterministic, contract-bound units are significantly better
+            suited to AI-assisted delivery than architectures built around larger,
+            stateful, implicitly coupled components. Better not in an abstract sense,
+            but in the ways that matter operationally — faster cycle times, fewer
+            regressions, higher maintainability under change, and more predictable
+            outcomes when an agent is asked to extend or modify the system.
+          </p>
+
+          <p>
+            This post lays out the argument, acknowledges the genuine trade-offs, and
+            invites you to design your own experiment.
+          </p>
+
+          <h2>What "Better" Means Here</h2>
+
+          <p>
+            Before the argument, a definition. When this post claims one architectural
+            approach is better for AI-assisted delivery, it means better across a
+            specific set of dimensions:
+          </p>
+
+          <ul>
+            <li><strong>Speed and cycle time:</strong> how quickly a change can be
+              designed, implemented, reviewed, and shipped.</li>
+            <li><strong>Predictability:</strong> whether the system behaves as expected
+              after a change is made — not just in tests, but in production.</li>
+            <li><strong>Defect rate:</strong> fewer regressions, fewer unintended
+              consequences, fewer incidents triggered by changes that looked safe.</li>
+            <li><strong>Maintainability under AI-assisted change:</strong> when a new
+              capability is added using an agent, the rest of the system should not
+              break in unexpected ways.</li>
+            <li><strong>Recoverability:</strong> when something does go wrong, how
+              quickly the team can identify the source and restore correct behaviour.</li>
+          </ul>
+
+          <p>
+            These are not new goals. They are the outcomes any good software delivery
+            practice aims for. What changes with AI agents is the mechanism. The
+            question is which architectural patterns make those mechanisms more
+            reliable.
+          </p>
+
+          <h2>The Core Problem: Context Has a Ceiling</h2>
+
+          <p>
+            An AI agent's ability to reason accurately about a codebase is bounded by
+            what it can see and test. Context windows have grown significantly in recent years,
+            but larger windows do not solve the problem — they defer it. In practice,
+            the quality of reasoning degrades as the amount of context increases,
+            especially when that context contains implicit relationships that are not
+            explicitly declared anywhere and a lack of determinism in the code that makes it harder for the agent to infer the correct behaviour.
+          </p>
+
+          <p>
+            A monolithic application with shared state, deep inheritance hierarchies,
+            and global configuration creates exactly this problem. The agent can read
+            the function it is asked to change. It cannot reliably infer every caller,
+            every side effect, every downstream dependency that could be affected. And
+            it will not always tell you when it is uncertain as we have all seen in practice where AI Agents confidently produce incorrect output.
+          </p>
+
+          <div class="ai-callout" role="note" aria-label="AI Insight">
+            <p class="ai-callout__label">Insight</p>
+            <p>
+              Larger context windows still break down in practice when the underlying
+              coupling is implicit. The problem is not always how much the agent can
+              read — it is whether what it reads is sufficient to reason correctly.
+              Explicit contracts change that equation.
+            </p>
+            <p class="confidence">Confidence: High</p>
+          </div>
+
+          <h2>The Case for Boundaries</h2>
+
+          <p>
+            A different architectural style changes the equation. When software is
+            decomposed into small, independently operable units — functions, services,
+            or packages — with explicit input/output contracts between them, the agent's
+            task becomes bounded in a way that supports reliable output.
+          </p>
+
+          <p>
+            Each unit has a defined surface area. The agent can understand what the
+            unit does, what it consumes, and what it must produce, without needing to
+            understand the entire system. The contract is the boundary. Everything
+            outside that boundary is irrelevant to the correctness of this unit, and
+            the agent does not need to know about it.
+          </p>
+
+          <p>
+            This is the principle at work in systems like AWS Lambda functions or Azure
+            Functions: small, independently deployable units with explicit triggers and
+            outputs. It is also the principle behind Unix-style ecosystems of independent
+            tools — each one does one thing, honours a shared interface convention, and
+            composes cleanly with others. The composed system is reliable not because
+            every component knows about every other, but because each one honours its
+            contract at the boundary.
+          </p>
+
+          <h2>Zooming In and Zooming Out</h2>
+
+          <p>
+            One of the most useful ways to frame this kind of architecture is the ability
+            to zoom in and out — to move between the detail of a single function and
+            the wider shape of the system without losing clarity at either level.
+          </p>
+
+          <p>
+            In a contract-driven, decomposed system, this is structurally possible.
+            Zoom in to a single unit: you see its inputs, its outputs, its tests, its
+            contract. Zoom out to the system level: you see how units compose, what
+            flows between them, where the integration points are. The two views are
+            consistent. Nothing important lives implicit but unarticulated in the gaps between them.
+          </p>
+
+          <p>
+            In a large monolith with implicit coupling, zooming out loses detail in
+            ways that matter. There are behaviours that only emerge when specific
+            combinations of components interact. There are side effects that are only
+            visible at the module level. An agent working at the function level cannot
+            see them. An agent working at the system level cannot reason about the
+            detail. The zoom levels are incoherent.
+          </p>
+
+          <h2>Functional Styles Versus Object-Oriented Programming</h2>
+
+          <p>
+            The architectural argument extends to language and paradigm, though here
+            the case is logical rather than empirical — the evidence is still accumulating.
+          </p>
+
+          <p>
+            Functional programming styles tend to create harder structural barriers
+            around separation. Functions are pure, or close to it. Side effects are
+            explicit and pushed to the edges. State is not shared implicitly. An agent
+            asked to modify a function in a functional codebase can, in many cases,
+            reason about that function in near-isolation. The type system — especially
+            in strongly-typed functional languages — makes the contract explicit at
+            the language level rather than in documentation.
+          </p>
+
+          <p>
+            Object-oriented programming (OOP) is not inherently worse, but it enables
+            patterns that are harder for agents to navigate. Inheritance trees require
+            the agent to understand superclass behaviour. Mutable shared state means
+            a change in one place has non-local effects. The abstractions that make
+            OOP powerful for human reasoning — encapsulation, polymorphism,
+            inheritance — create implicit context that agents must reason about without explicit code to tweak the probabilities of the next token being correct.
+          </p>
+
+          <p>
+            The practical implication is not "rewrite everything in Haskell." It is
+            that within OOP codebases, preferring immutable data, explicit interfaces,
+            and small classes with single responsibilities moves the design closer to
+            the properties that make functional code agent-friendly. The paradigm
+            matters less than the discipline with which its constraints are applied.
+          </p>
+
+          <div class="ai-callout" role="note" aria-label="AI Insight">
+            <p class="ai-callout__label">Insight</p>
+            <p>
+              The strongest predictor of how well an agent performs on a change is not
+              the language, the framework, or the model — it is the clarity and
+              explicitness of the boundary around the unit being changed. A well-bounded
+              class in Java is easier for an agent than a loosely-bounded function
+              in Haskell.
+            </p>
+            <p class="confidence">Confidence: Medium</p>
+          </div>
+
+          <h2>A Concrete Scenario</h2>
+
+          <p>
+            Consider two teams asked to add a new validation rule to their order
+            processing pipeline. One team has a monolithic service — the validation
+            logic is spread across several classes, shares state with the persistence
+            layer, and has test coverage that is partial and integration-heavy.
+          </p>
+
+          <p>
+            The other team has decomposed the pipeline into independently deployable
+            functions. Validation is a single function with a clear input schema, a
+            clear output schema, and a suite of unit tests against those schemas.
+            The function knows nothing about persistence. Persistence knows nothing
+            about validation.
+          </p>
+
+          <p>
+            Ask an AI agent to implement the new validation rule on both systems.
+            In the first system, the agent must infer which classes are involved,
+            understand the implicit state dependencies, and produce a change that
+            is correct across a surface it cannot fully see. In the second, the
+            agent gets the function, the input schema, the output schema, and the
+            existing tests. The task is bounded. The correctness criteria are
+            explicit. The generated code can be validated against the contract
+            deterministically.
+          </p>
+
+          <p>
+            This is not a theoretical difference. It is the difference between a
+            change that takes a careful human review to verify and one that a
+            test suite can validate automatically.
+          </p>
+
+          <h2>Acknowledging the Trade-offs</h2>
+
+          <p>
+            Over-decomposition is a real failure mode. A system fragmented into
+            hundreds of nano-functions with no coherent model of the domain becomes
+            harder to reason about, not easier. Operational overhead grows.
+            Orchestration complexity increases. Debugging distributed failures requires
+            tooling and discipline that many teams underestimate. Maintaining explicit contracts is work. Maintaining dependencies in a sprawling number of small fragments is more work unless automated effectively. There are real costs to this approach.
+          </p>
+
+          <p>
+            The goal is not maximum decomposition — it is disciplined decomposition.
+            Units should be sized around natural domain boundaries. Contracts should
+            be stable at the interfaces that matter and flexible where flexibility
+            is genuinely needed. Tests should validate behaviour at the contract
+            surface, not just internal implementation details.
+          </p>
+
+          <p>
+            A well-maintained monolith can still work in this model, provided it has strong domain documentation, and
+            enforces a clear policy for how and when large files are split. The
+            monolith is not the enemy. Implicit, unmanaged coupling is.
+          </p>
+
+          <h2>The Experiment Worth Running</h2>
+
+          <p>
+            This is a hypothesis, not a settled claim. The argument is logical and
+            directionally supported by experience, but the systematic evidence is
+            still being assembled. What would make the case stronger is practitioners
+            running controlled comparisons in their own organisations.
+          </p>
+
+          <p>
+            A useful experiment might look like this: take two components in your
+            system — one with explicit contracts and good test coverage, one with
+            implicit coupling and partial coverage. Ask an AI agent to implement the
+            same category of change in both. Measure the number of review iterations,
+            the defect rate in production, and the time from task to mergeable code.
+            Then share what you found.
+          </p>
+
+          <p>
+            The most valuable contributions are not confirmations — they are
+            counterexamples and failure modes. If tightly-bounded units did not help
+            your team, or if the overhead of maintaining contracts outweighed the
+            benefit, that is important information. The hypothesis only strengthens
+            when it is exposed to evidence that tries to break it.
+          </p>
+
+          <div class="ai-callout" role="note" aria-label="AI Insight">
+            <p class="ai-callout__label">Insight</p>
+            <p>
+              The most interesting experiments will come from teams working in brownfield
+              systems — codebases that were not designed for this and cannot be rewritten.
+              How do you improve the boundary quality of an existing system incrementally?
+              What is the minimum viable contract that gives an agent enough to work
+              reliably? These are open questions worth pursuing.
+            </p>
+            <p class="confidence">Confidence: Medium</p>
+          </div>
+
+          <h2>Where This Leaves Us</h2>
+
+          <p>
+            The architecture decisions made today will shape how well AI agents can
+            assist in delivering and maintaining software for years ahead. The teams
+            that will benefit most are not necessarily those with the best models or
+            the most sophisticated tooling — they are the ones whose systems are
+            designed so that a bounded, contract-respecting unit of change is always
+            available for the agent to work with.
+          </p>
+
+          <p>
+            Design for boundaries. Make contracts explicit. Keep units small enough
+            that their behaviour can be described completely. That discipline was good
+            practice before AI agents. With AI agents, it becomes a structural advantage.
+          </p>
+
+          <p>
+            If you have run experiments, seen this succeed, or seen it fail — Open an issue in the repo to share your experience or DM me on LinkedIn/X. 
+            The argument gets sharper with evidence.
+          </p>
+
+        </div>
+
+        <footer class="article-footer">
+          <a href="../index.html" class="btn btn-primary">← Back to all posts</a>
+          <div class="post-card__tags" aria-label="Tags">
+            <span class="tag">Architecture</span>
+            <span class="tag">AI</span>
+            <span class="tag">Agents</span>
+          </div>
+        </footer>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+
+      <div class="footer-brand">
+        <p class="footer-logo">
+          <span class="logo-star" aria-hidden="true">✦</span>
+          Deneb
+        </p>
+        <p class="footer-disclaimer">
+          The views and opinions expressed on this blog are entirely my own personal
+          thoughts and ideas. They do not represent, reflect, or relate to the views
+          of any current or past employers.
+        </p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <p class="footer-nav-heading">Links</p>
+        <a href="https://github.com/Sam-Rowe"
+           rel="noopener noreferrer"
+           target="_blank"
+           aria-label="Sam Rowe on GitHub (opens in new tab)">
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/samuelcprowe/"
+           rel="noopener noreferrer"
+           target="_blank"
+           aria-label="Sam Rowe on LinkedIn (opens in new tab)">
+          LinkedIn
+        </a>
+        <a href="../about.html">About</a>
+        <a href="../index.html">Home</a>
+      </nav>
+
+      <p class="footer-bottom">
+        <small>© 2026 Sam Rowe. Built without frameworks, refined with AI.</small>
+      </p>
+
+    </div>
+  </footer>
+
+</body>
+</html>
