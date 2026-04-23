@@ -75,7 +75,7 @@ test.describe('Navigation flow', () => {
     await page.goto('/');
     await page.locator('.post-card__title a').first().click();
     await expect(page).toHaveURL(/posts/);
-    await expect(page.locator('h1')).toContainText('Boundaries First');
+    await expect(page.locator('h1')).toContainText('Building a Simple Game');
   });
 
   test('can navigate back from blog post to homepage', async ({ page }) => {
