@@ -90,52 +90,41 @@
         <div class="article-body">
 
           <p>
-            My daughter is nine. She does not know how to write code. Neither does she need to —
-            not yet, and possibly not ever in the traditional sense. What she does know is what
-            she finds fun, what she wants a game to do, and how to tell you exactly what is wrong
-            with the version that doesn't quite work yet. It turns out that is most of what you
-            need.
+            My daughter is nine. Despite having done an hour of code (several times) and many hours playing with scratch, she doesn't know any programming languages in the traditional sense. 
+            Neither does she need to;
+            and possibly might never need too? 
+            What she does know is what
+            she enjoys, what she wants a game to do and look like, and how to explain what is wrong
+            with a game that doesn't quite work (yet). It turns out that is (almost) all you need with AI coding tools to write a simple platformer game.
           </p>
 
           <p>
             We spent a few hours together building
             <a href="https://sam-rowe.github.io/HDTwist/" rel="noopener noreferrer" target="_blank">HDTwist</a>
-            — a simple browser game, now live on GitHub Pages and
+            a simple browser game, now live on GitHub Pages and
             <a href="https://github.com/Sam-Rowe/HDTwist" rel="noopener noreferrer" target="_blank">open source on GitHub</a>.
-            GitHub Copilot did the bulk of the implementation. We did the thinking.
+            GitHub Copilot did the dev work. We did the thinking and explaining.
           </p>
 
           <p>
             This post is about what that process actually looked like, and why I think it matters
-            for how we talk about AI and creativity — especially with the people who will grow up
+            for how we talk about AI and creativity; especially with the people who will grow up
             assuming AI assistance is just part of how things get made.
           </p>
 
           <h2>Start With a Conversation, Not a Prompt</h2>
 
           <p>
-            The first thing we did was not open a code editor. We talked to Copilot about the
+            The first thing we did was not open a code editor. We talked to each other about the
             game. What kind of game did she want? What should it feel like? What makes a game
-            satisfying versus frustrating? What rules would make it interesting?
+            visually appealing? What rules would make it interesting? What characters would it have? What would the player do? 
           </p>
 
           <p>
-            My daughter had opinions. Strong ones. She knew she wanted something with colour and
-            speed. She knew what she liked about the games she already played. She could describe
-            — with real specificity — what "fun" meant to her in this context.
+            My daughter had opinions, strong ones. She knew she wanted something dark and moody but becoming colourful.
+            She knew what she liked about the games she already played. She could describe
+            with real specificity what she wanted the characters to do and be like.
           </p>
-
-          <div class="ai-callout" role="note" aria-label="AI Insight">
-            <p class="ai-callout__label">Insight</p>
-            <p>
-              This planning phase is where Copilot earns its place. Not by writing code — by
-              helping to structure thinking. Asking it to act as a design collaborator, to push
-              back on vague requirements, to suggest what might go wrong with a mechanic — this
-              is where the conversation becomes genuinely productive before a single line of code
-              is written.
-            </p>
-            <p class="confidence">Confidence: High</p>
-          </div>
 
           <p>
             The planning conversation produced something concrete: a short, clear description of
@@ -167,10 +156,9 @@
 
           <p>
             Rather than diving straight back into the editor, we did something more structured.
-            We played the game. My daughter played it with the fresh eyes of someone who had
-            never seen the code — only the intended experience. She found things I would have
-            missed. Behaviours that were technically correct but felt wrong. Gaps between the
-            game we had planned and the game that had been built.
+            We played the game. My daughter played it with no expectations just for fun. 
+            She found things she didn't like that were not as she expected. 
+            Behaviours that were technically correct but felt wrong and things that just didn't work. 
           </p>
 
           <p>
@@ -203,7 +191,7 @@
 
           <p>
             HDTwist is not a complex game. It is not trying to be. It is a browser-based game
-            that works, that we are proud of, that is live for anyone to play and fork, and that
+            that works (mostly), that we are proud of, that is live for anyone to play and fork, and that
             we built together in a few hours without either of us needing to understand every
             line of JavaScript involved.
           </p>
@@ -211,8 +199,10 @@
           <p>
             My daughter's contribution was not trivial. She defined the requirements. She did the
             acceptance testing. She caught bugs that code review would not catch, because they
-            were bugs of feel rather than bugs of logic. She wrote half the issues. She made
+            were bugs in the game play rather than bugs of logic. She wrote half the issues. She made
             decisions about the game that shaped what Copilot built.
+            Most importantly, she had fun and is very proud of the game we made together. 
+            That is the real win here. The fact that we built something together is a bonus, but the fact that she had fun and is proud of what we made is the real point.
           </p>
 
           <p>
@@ -243,7 +233,7 @@
             </li>
             <li>
               <strong>This is reproducible.</strong> We did not have access to anything special.
-              GitHub Copilot, a browser, and a few hours. That is the entire stack.
+              GitHub Copilot, a browser, and a few hours. That is the entire stack. This cost us copilot credits (PRU's) but the hosting on GitHub pages is free!
             </li>
           </ul>
 
