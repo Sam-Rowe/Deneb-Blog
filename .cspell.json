@@ -46,6 +46,12 @@
     "Protobuf",
     "runbooks",
     "flame",
+    "Dreyfus",
+    "Dunning",
+    "Kruger",
+    "prorate",
+    "prorates",
+    "proration",
     "quot"
   ],
   "ignorePaths": [
