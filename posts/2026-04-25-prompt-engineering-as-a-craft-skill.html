@@ -92,13 +92,11 @@
           <p>
             Every domain has invisible truths that only practitioners recognise. Ask a
             grid operator what the hard problem in renewable energy is, and they will
-            not say "build more solar panels." They will say "frequency stability." Ask
+            not say "build more solar panels." They will likely say something like "frequency stability." Ask
             an experienced logistics engineer what caused the Suez Canal disruption to
-            cascade so badly, and they will not say "one ship got stuck." They will say
-            "the fragility of just-in-time systems." Ask a senior insurance actuary what
-            is hard about modelling a policy start date, and they will not say "the
-            date." They will say "the timezone, the billing cycle, the regulatory
-            window, and the local convention around inception dates."
+            cascade so badly, and they will not say "one ship got stuck." They will likely say something like
+            "the fragility of just-in-time systems." Ask a senior developer working on an insurance system what
+            is hard about policy dates, and they will not say "the database" They will likely say something about "the timezones of the servers and where the policy is being created.."
           </p>
 
           <p>
@@ -122,9 +120,9 @@
             skill acquisition that identified five stages through which practitioners
             move in any complex domain: novice, advanced beginner, competent, proficient,
             and expert. The model has been applied to nursing, chess, flying, software
-            engineering, and many other fields. It fits prompt engineering surprisingly
-            well — partly because prompt engineering is genuinely complex, and partly
-            because the most important variable at every stage is not the technique
+            engineering, and many other fields. It fits working with AI in the SDLC surprisingly
+            well — partly because software engineering is genuinely complex, and partly
+            because the most important input to AI in the SDLC at every stage is not the technique
             being applied but the knowledge informing it.
           </p>
 
@@ -132,6 +130,10 @@
             What follows is not a strict academic application of the Dreyfus framework.
             Think of it as a lens. A way of recognising where you are, understanding
             what the next stage looks like, and seeing why the journey matters.
+
+            For the rest of this post I will use "prompt engineering" as shorthand for the broader skill of effectively leveraging AI across the SDLC — from requirements gathering to architecture, design, code generation, review
+and testing. The same principles apply across all those stages, and the same developmental path applies to the skill as a whole, not just to the act of writing prompts at the keyboard.
+This is important context for this article but I am not using the term to minimise the importance of software engineering or to suggest that prompting is the new skill. Prompt engineering is a sub optimal term to reference the interaction of a software engineer with domain expertise to work with AI in the SDLC.
           </p>
 
           <h2>Stage One: Novice</h2>
@@ -148,7 +150,7 @@
             The novice also tends to benchmark the AI against their own knowledge and
             find it impressive. If the output looks plausible and compiles, it probably
             is good enough. The novice is not yet equipped to judge what they cannot see
-            — the edge cases, the assumptions baked in, the constraints that were never
+            the edge cases, the assumptions baked in, the constraints that were never
             stated because they were never known to be constraints.
           </p>
 
@@ -156,6 +158,10 @@
             This is not a failing. It is the start of a journey. But it is worth naming
             clearly: at this stage, the quality ceiling is the prompter's domain
             knowledge, not the model's capability.
+          </p>
+
+          <p>
+            Expect AI slop at this stage, it probably will work but could be wrong in a lot of ways and will be unmaintainable quickly.
           </p>
 
           <h2>Stage Two: Advanced Beginner</h2>
@@ -182,13 +188,19 @@
             reinforce each other.
           </p>
 
+          <p>
+            Failure modes at this stage include over-trusting the AI on edge cases, and
+            under-investing in domain knowledge because the AI seems to be doing so much of the work.
+            Documentation and specification gaps, especially domain context specific ones, are common, and the prompter does not yet have the experience to know which ones matter.
+          </p>
+
           <h2>Stage Three: Competent</h2>
 
           <p>
             The competent practitioner has a deliberate approach. They prepare their
-            context before prompting — gathering the right artefacts, writing the
-            failing test first, ensuring the AI has the information it needs to reason
-            correctly. They understand the difference between what the AI knows from
+            thoughts before prompting. Gathering the right artefacts, grounding the conversation in the anchor points to identify correctness in the output,
+             ensuring the AI has the information it needs to reason
+            correctly. The prompter has started to develop an instinct for the difference between what the AI knows from
             training data and what it needs to know from the specific system it is
             helping build.
           </p>
@@ -218,16 +230,15 @@
 
           <p>
             The proficient practitioner has developed genuine intuition. They can look
-            at a generated output and immediately sense something is off — often before
+            at a generated output and immediately sense something is off often before
             they have run the code or read it carefully. They understand the system they
             are building well enough that AI-generated suggestions that do not fit the
-            real constraints register as wrong at a level below conscious analysis.
+            real constraints register as wrong at a level below conscious analysis and often in real time as the agents are moving through the steps.
           </p>
 
           <p>
             At this stage, the relationship with the AI shifts again. The proficient
-            practitioner uses the AI more like a thinking partner — not just for code
-            generation but for working through design decisions, exploring trade-offs,
+            practitioner works with the AI as a thinking partner exploring trade-offs,
             and pressure-testing their own assumptions. They are confident enough in
             their own judgment to push back on the AI when it is wrong, and humble
             enough to recognise when the AI has surfaced something they had missed.
@@ -349,8 +360,7 @@
           <p>
             These questions cannot be answered by reading the code in isolation. They
             require the reviewer to carry the domain model in their head and apply it
-            to what they are seeing. That is expertise. And it is not replaceable by a
-            better prompt.
+            to what they are seeing. That is expertise and where Human judgement with AI shines brightest. These are the 10x engineers of the Ai enabled SDLC.
           </p>
 
           <h3>Testing</h3>
