@@ -385,10 +385,12 @@ This is important context for this article but I am not using the term to minimi
 
           <p>
             The over-trusting engineer expects the AI to understand the full complexity
-            of their domain from minimal description. They ask for the insurance policy
-            date feature and trust that the AI will handle the timezone, the regulatory
-            inception window, and the billing cycle proration without being told. When
-            the bugs emerge — and they will — they are attributed to AI limitations
+            of their domain (the industry and business context the software serves,
+            whether finance, insurance, or another field) from minimal description.
+            They ask for the insurance policy and include vague information about the
+            date and trust that the AI will handle the timezone in the data and systems, the regulatory
+            and cultural nuances, and the billing cycle proration without being told. When
+            the bugs emerge, <b>and they will</b>, they are attributed to AI limitations
             rather than to the missing context that would have prevented them.
           </p>
 
@@ -399,7 +401,7 @@ This is important context for this article but I am not using the term to minimi
             into tiny prescriptive steps, effectively writing pseudocode and asking the
             AI to translate it. The result is technically functional but misses the
             entire value proposition. An AI that is told exactly what to do in granular
-            detail adds primarily typing speed — which is useful but not transformative.
+            detail adds very little but consumes tokens.
             The value comes from giving the AI enough context and latitude to bring its
             broad knowledge to bear while the human directs, constrains, and verifies
             the output.
@@ -409,10 +411,10 @@ This is important context for this article but I am not using the term to minimi
 
           <p>
             Perhaps the most interesting failure mode. The engineer who has enough
-            domain knowledge to be dangerous — but not enough to recognise what they
-            are missing — prompts with confidence that their description is complete.
+            domain knowledge to be dangerous; but not enough to recognise what they
+            are missing, who prompts with confidence that their description is complete.
             They do not know about the inception date conventions, so they do not
-            mention them. They do not know about the frequency stability constraints,
+            mention them. In an energy system context they do not know about the frequency stability constraints,
             so they describe the energy system in aggregate terms. The prompt sounds
             thorough. The output looks correct. The bugs are invisible until production.
           </p>
@@ -431,7 +433,7 @@ This is important context for this article but I am not using the term to minimi
           </p>
 
           <p>
-            The most reliable mechanism is curiosity combined with proximity. Sitting
+            The most reliable mechanism is curiosity combined with proximity. Working
             with domain experts. Reading the regulatory documents. Understanding not
             just what the system does but why it works the way it does and what would
             happen if it worked differently. Someone with adjacent domain experience
@@ -443,19 +445,19 @@ This is important context for this article but I am not using the term to minimi
           <p>
             There are practical habits that accelerate the journey. Reviewing AI output
             against domain constraints, not just logic. Writing acceptance criteria
-            before prompting, forcing explicit articulation of edge cases. Reading
-            post-incident reports from production systems in your domain — the bugs
+            into the specs, forcing explicit articulation of edge cases. Reading
+            post-incident reports from production systems in your domain; the bugs
             that made it to production are a guide to exactly the kinds of complexity
             that get overlooked. Building a mental library of the "invisible truths" in
             your domain and making it a habit to surface them in every planning
-            conversation with the AI.
+            conversation with the AI agents.
           </p>
 
           <div class="ai-callout" role="note" aria-label="AI Insight">
             <p class="ai-callout__label">Insight</p>
             <p>
-              The multiple anchor points approach — sharing tests, existing code,
-              contracts, and documentation alongside a task — is partly a prompting
+              The multiple anchor points approach; sharing tests, existing code,
+              contracts, and documentation alongside a task, is partly a prompting
               technique and partly a forcing function for domain clarity. To gather the
               right anchor points, you have to know what matters about the system. That
               act of selection is itself a domain-knowledge exercise.
@@ -469,23 +471,23 @@ This is important context for this article but I am not using the term to minimi
 
           <p>
             There is a version of the AI story that is dispiriting for engineers: the
-            AI gets better, the marginal value of writing code decreases, the profession
-            commoditises. That version is worth taking seriously — but it is incomplete.
+            AI gets better, the marginal value of writing a line of code decreases, the profession
+            slowly edges towards commoditisation. That version is worth taking seriously, but it is incomplete.
           </p>
 
           <p>
             The more complete version is this: the value of deep domain expertise, good
             judgment, and the ability to identify invisible complexity is increasing, not
             decreasing. An AI that can write any code that can be clearly specified is
-            only as valuable as the human who can specify it clearly — and clear
-            specification of complex domain requirements is precisely what takes years
+            only as valuable as the human who can specify it clearly in enough detail to guide its output while not over-constraining it; 
+            This specification and understanding of any complex domain requirements is precisely what takes years
             of experience to develop.
           </p>
 
           <p>
             The engineer who combines deep domain knowledge with fluency in how to
             leverage AI is not a more productive version of the same role. They are
-            something qualitatively different — capable of operating at a level of
+            something qualitatively different; capable of operating at a level of
             quality and speed that would previously have required a much larger team.
             The domain expertise does not become less valuable as AI improves. If
             anything, it becomes the scarce input.
