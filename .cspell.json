@@ -46,7 +46,14 @@
     "Protobuf",
     "runbooks",
     "flame",
-    "quot"
+    "Dreyfus",
+    "Dunning",
+    "Kruger",
+    "prorate",
+    "prorates",
+    "proration",
+    "quot",
+    "timezones"
   ],
   "ignorePaths": [
     "node_modules/**",
