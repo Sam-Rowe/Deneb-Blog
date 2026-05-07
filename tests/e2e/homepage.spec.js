@@ -39,7 +39,7 @@ test.describe('Homepage', () => {
     const hero = page.locator('section.hero');
     await expect(hero).toBeVisible();
     await expect(hero.locator('h1')).toBeVisible();
-    await expect(hero.locator('h1')).toContainText('Prompt Engineering as a Craft Skill');
+    await expect(hero.locator('h1')).toContainText('AI Engineering as a Craft Skill: The Organisational Angle');
   });
 
   test('hero section has a call-to-action link', async ({ page }) => {
