@@ -53,7 +53,8 @@
     "prorates",
     "proration",
     "quot",
-    "timezones"
+    "timezones",
+    "counterintuitive"
   ],
   "ignorePaths": [
     "node_modules/**",
