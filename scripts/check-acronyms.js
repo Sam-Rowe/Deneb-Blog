@@ -80,6 +80,7 @@ function extractText(html) {
     .replace(/<script[^>]*>[\s\S]*?<\/script\s*>/gi, ' ')
     .replace(/<style[^>]*>[\s\S]*?<\/style\s*>/gi,   ' ')
     .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<span[^>]*\bclass="tag"[^>]*>[\s\S]*?<\/span>/gi, ' ')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&lt;/g,   '<')
     .replace(/&gt;/g,   '>')
