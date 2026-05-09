@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The repo of the future has no code in it — a prediction that the near-future repository contains only intent, scenarios, data shapes and a UX sketch. The running application becomes disposable, regenerated on demand, and personal to a single user.">
+  <meta name="author" content="Sam Rowe">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="The repo of the future has no code in it">
+  <meta property="og:description" content="A prediction that the near-future repository contains only intent, scenarios, data shapes and a UX sketch. The running application becomes disposable, regenerated on demand, and personal to a single user.">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-05-08">
+  <meta property="article:author" content="Sam Rowe">
+
+  <title>The repo of the future has no code in it — Deneb</title>
+
+  <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Critical inline styles -->
+  <style>
+    :root { --bg-primary: #0f1115; }
+    body { background-color: var(--bg-primary); margin: 0; }
+    [data-theme="light"] { --bg-primary: #f8f9fb; }
+  </style>
+
+  <script src="../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap"
+    media="print"
+    onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap">
+  </noscript>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-container" aria-label="Main navigation">
+      <a class="nav-logo" href="../index.html" aria-label="Deneb — go to homepage">
+        <span class="logo-star" aria-hidden="true">✦</span>
+        Deneb
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        type="button"
+        aria-label="Switch to light theme">
+        <span class="theme-icon" aria-hidden="true">☀</span>
+        <span class="theme-label">Light</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div class="article-page">
+
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">The repo of the future has no code in it</span>
+      </nav>
+
+      <article>
+        <header class="article-header">
+          <h1 class="article-title">The repo of the future has no code in it</h1>
+
+          <div class="article-meta">
+            <time datetime="2026-05-08">8 May 2026</time>
+            <span aria-hidden="true">·</span>
+            <span>6 min read</span>
+            <span aria-hidden="true">·</span>
+            <span class="ai-badge" aria-label="AI-assisted content">AI-assisted</span>
+            <span aria-hidden="true">·</span>
+            <span class="confidence-badge confidence-badge--medium" aria-label="Prediction confidence: Medium">Confidence: Medium</span>
+          </div>
+        </header>
+
+        <div class="article-body">
+
+          <h2>The repo with no code in it</h2>
+
+          <p>
+            Imagine cloning a repository and finding no <code>.ts</code> files. No
+            <code>.py</code>. No compiled assets. Instead: a prose description of
+            what the system does, a handful of scenario documents written as user
+            stories, a few data shapes with worked examples, and a rough sketch of
+            the screens. That's it. You push a button, and the application builds
+            itself.
+          </p>
+
+          <p>
+            That image feels like a recipe for disaster and science fiction. I think we're closer to it than
+            it sounds; and I think the trajectory is already visible in the way
+            the best AI-assisted engineering teams are working right now.
+            More than that, I predict when the repo-with-no-code arrives, it will be the dominant pattern for software
+            because folk will love the customisation; it will be the only way to deal with the complexity and speed of software security
+            and it will be incredibly powerful to create experiences that currently cannot be created.
+          </p>
+
+          <h2>The pattern we're already living</h2>
+
+          <p>
+            This isn't a break from current practice. It's an extreme of something
+            already underway.
+          </p>
+
+          <p>
+            Spec-driven development; the idea of capturing domain expertise in
+            human-readable specifications that sit alongside or ahead of code, is
+            gaining real traction. Projects like
+            <a href="https://speckit.org/" rel="noopener noreferrer" target="_blank">Spec Kit</a>
+            treat the specification as a first-class engineering artifact: something
+            you version, review, and test against, not just a document you write
+            once and then ignore.
+          </p>
+
+          <p>
+            Earlier posts on this blog have circled the same idea from different
+            angles. <a href="2026-05-01-prompt-engineering-as-a-craft-skill.html">Prompt
+            engineering as a craft skill</a> argued that the scarce input in
+            AI-assisted development is not tooling but domain knowledge, the ability
+            to articulate intent precisely enough that a model can act on it reliably.
+            <a href="2026-04-18-boundaries-first.html">Boundaries first</a> made the
+            case for defining interfaces and contracts before touching implementation.
+            <a href="2026-04-16-multiple-anchor-points.html">Multiple anchor points</a>
+            explored how layered, overlapping specifications make AI output more
+            predictable. In each case, the prose — the intent — is doing the real
+            engineering work. The code is output, not input.
+          </p>
+
+          <p>
+            Today, these artifacts sit <em>alongside</em> code. The prediction is that
+            they replace it.
+          </p>
+
+          <h2>What "source" actually becomes</h2>
+
+          <p>
+            Not source code. Not a formal specification in the software engineering
+            sense. Something closer to what you'd tell a sharp new hire on day one:
+            what this system is for, what it must never do, who uses it and how,
+            what the data looks like when it arrives and when it leaves, what the
+            screens feel like to use. The compiler is a model.
+          </p>
+
+          <p>
+            It's worth being precise about the spectrum here. For
+            <strong>UX-only applications</strong> — things that consume
+            fixed-contract APIs or sit in front of a well-defined message bus —
+            a description plus screen sketches may genuinely be enough. The
+            boundaries are already drawn. The model's job is to render them.
+          </p>
+
+          <p>
+            For <strong>full systems</strong> — anything with its own storage,
+            business logic, or non-trivial data handling — prose alone collapses.
+            You need worked examples of data in and out. You need explicit treatment
+            of storage and retrieval patterns. You need someone to have thought
+            carefully about the second- and third-order effects of data exposure
+            decisions, because a model cannot infer those from intent alone and
+            the cost of getting them wrong compounds quickly.
+          </p>
+
+          <p>
+            So the "no code" repository isn't weightless. It contains intent,
+            scenarios, data examples, storage and retrieval patterns, and a UX
+            sketch. Still no code. But there is real engineering in those artifacts.
+            Someone has to put it there.
+          </p>
+
+          <h2>Today vs. tomorrow</h2>
+
+          <table class="comparison-table" aria-label="Today versus tomorrow comparison">
+            <thead>
+              <tr>
+                <th scope="col">Today</th>
+                <th scope="col">Tomorrow</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Code is canonical</td>
+                <td>Prompts and specs are canonical</td>
+              </tr>
+              <tr>
+                <td>Prompts are scaffolding</td>
+                <td>Code is exhaust</td>
+              </tr>
+              <tr>
+                <td>Tests verify code</td>
+                <td>Tests verify intent</td>
+              </tr>
+              <tr>
+                <td>Design is a reference</td>
+                <td>Design is the spec</td>
+              </tr>
+              <tr>
+                <td>One build, many users</td>
+                <td>One user, one build</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>The personalisation dividend</h2>
+
+          <p>
+            The most interesting consequence of disposable, regenerated applications
+            isn't faster delivery. It's that every user could get a different build.
+          </p>
+
+          <p>
+            Consider a theoretical personal finance view. Today you manage your money
+            across four or five siloed apps — a current account here, a pension there,
+            a mortgage portal you log in to twice a year (and immediately have to go through the 
+            biometric authentication dance each time). Each one either wants to know about all the others
+             without adequate connectors or live in a world of purist isolation denying any other financial 
+             dimension exists. None of them present
+            your finances the way <em>you uniquely</em> actually think about your money.
+          </p>
+
+          <p>
+            In a regenerated-application world, you describe what you want to see and
+            how you want to see it. The application is built for you — pulling from
+            your banks, pension providers, and mortgage provider via open APIs — and
+            rendered in the mental model that makes sense to you personally. Not a
+            feature flag. Not a dashboard configuration. A regeneration. Your
+            neighbour's finance app and yours share no UI at all, because they
+            shouldn't.
+          </p>
+
+          <div class="ai-callout" role="note" aria-label="AI Insight">
+            <p class="ai-callout__label">Insight</p>
+            <p>
+              Personalised regeneration breaks the shared digital culture assumption
+              that sits under most of our current thinking about design systems,
+              brand consistency, and user research. Today we ask "how do users
+              experience feature X?" In a per-user build world, there is no feature X —
+              only the version of X built for each individual. Design systems become
+              intent libraries. Brand consistency becomes a set of constraints on
+              what the model may produce, not a fixed visual language. User research
+              becomes harder to aggregate, and far more powerful if you can.
+            </p>
+            <p class="confidence">Confidence: Medium</p>
+          </div>
+
+          <h2>The downsides we have to stare at</h2>
+
+          <p>
+            I want to be honest about the problems, because they are significant.
+          </p>
+
+          <h3>Compute and climate</h3>
+          <p>
+            Rebuilding the world on every request is not free. If every application
+            interaction triggers a model generation, the energy cost is orders of
+            magnitude above what we pay today for serving compiled code. This is
+            not a reason the trajectory won't happen. It is a reason the trajectory
+            has to be honest about its costs. In a few years will we have optimised 
+            the models and the hardware enough that local compute on modest hardware for this application regeneration is feasible?
+            
+            I am hopeful, but it is a big question mark.
+          </p>
+
+          <h3>Non-determinism and regressions</h3>
+          <p>
+            "It worked yesterday" becomes a literal statement rather than a figure of
+            speech. When the artifact that ran is regenerated on demand, you lose the
+            ability to bisect against a fixed codebase. Testing intent rather than
+            implementation is possible — it's actually a better model — but it
+            requires a discipline around scenario coverage that most teams currently
+            don't have. New frameworks that allow non-developers to effectively customise 
+            their applications without losing consistency, reliability and security will 
+            be a critical part of the ecosystem that makes this trajectory viable.
+          </p>
+
+          <h3>Security and supply chain</h3>
+          <p>
+            When the model chooses the libraries at generation time, who chose your
+            CVEs? Software supply chain security is already a hard problem with fixed
+            dependency trees. It becomes a different category of problem when the
+            dependency graph is generated fresh each time and neither the developer
+            nor the operator ever sees it.
+            On the plus side, with the right guardrails this could be a powerful way 
+            to keep pace with the rapidly evolving security landscape. If a new vulnerability emerges, 
+            the model could automatically exclude vulnerable dependencies from future builds, 
+            without waiting for developers to patch and release new versions. 
+            But it also opens up new attack vectors if not handled carefully.
+          </p>
+
+          <h3>Auditability and liability</h3>
+          <p>
+            When the artifact that ran no longer exists, what do regulators inspect?
+            In financial services, healthcare, and any regulated domain, the answer
+            to "what did your system actually do?" currently points at code and logs.
+            In a regenerated-application world, the answer points at intent documents
+            and generation logs that may not exist in a form that satisfies an auditor.
+            I am confident this is solvable with the right audit trails and logging standards and frameworks.
+             But it is a significant shift from the way we currently think about compliance and will require new
+             thinking from regulators as well as engineers.
+          </p>
+
+          <h2>What this means right now</h2>
+
+          <p>
+            The repo-with-no-code is not on a shelf you can reach today. But the
+            trajectory is real, and there are things worth doing now in response to it.
+          </p>
+
+          <p>
+            <strong>Treat prompts, specs and scenarios as primary engineering artifacts.</strong>
+            Version them. Review them. Test against them. If your intent documents live
+            in a Word document or Confluence page that nobody owns and never gets updated, you are already
+            behind where you need to be.
+          </p>
+
+          <p>
+            <strong>Push for open standards for personal data portability.</strong>
+            Personalised regeneration is meaningless without the data to feed it.
+            If your bank doesn't expose an API and your pension provider considers
+            your balance proprietary, the finance app of your imagination stays
+            theoretical. The technical capability is arriving before the data
+            infrastructure that makes it useful. This also requires open standards
+            for authentication and data portability that don't exist yet in all the domains where they are needed. 
+            They do exist in the UK for many financial systems with the Open Banking standards, but they are not yet universal.
+            If we want a future where users can choose to have their data flow into custom-built applications, 
+            we need to start building the infrastructure for that now.
+
+            I want to shout out to Salesforce here for their vision of a Headless future —
+            <a href="https://www.salesforce.com/news/stories/salesforce-headless-360-announcement/" rel="noopener noreferrer" target="_blank">Salesforce Headless 360</a> —
+            which I think is a really exciting and 
+            early example of this trajectory in the enterprise space. They are building the data infrastructure and access interfaces 
+            for AI Agents and users to personalise in real time their experience. While Salesforce are doing this to enable
+            their customers to build richer, more personalised experiences on top of their platform,
+            I hope to see more of this kind of work from other platform providers in the coming years.
+          </p>
+
+          <p>
+            <strong>Reframe personalisation and accessibility.</strong> This is the
+            one that I find most exciting, and I want to say it clearly.
+          </p>
+
+          <p>
+            In a regenerated, single-user world, accessibility stops being "add ramps
+            to a shared building." The audience of a UX is one person. That is not
+            a constraint. That is an opportunity to build something that genuinely
+            fits them — and to omit everything that doesn't.
+          </p>
+
+          <p>
+            A blind user doesn't need a colour palette. They don't need a font
+            choice. A deaf user doesn't need audible feedback. A dyslexic user
+            might want a complex table rendered as a logical sequence of steps they
+            can move through one at a time. Right now we ask whether the shared
+            application is accessible to all of these people simultaneously, which
+            is a hard design problem. In a per-user build world, you ask a different
+            question: what does this person actually need, and what can we leave out to optimise for their experience?
+          </p>
+
+          <p>
+            The build conforms to the human. Not the other way round.
+          </p>
+
+          <h2>Confidence note</h2>
+
+          <p>
+            This is a prediction, not a roadmap. The trajectory feels clear to me.
+            The timescale and the exact shape of arrival do not.
+          </p>
+
+          <p>
+            The compute and governance problems are real obstacles, not just
+            engineering challenges to be iterated away. The data portability
+            infrastructure is patchy and incomplete in many areas. And the
+            cultural shift — from code as the thing that matters to intent as the
+            thing that matters — will be slow and uneven, because it requires
+            engineers to let go of a very deeply held identity with customisers and tinkerers 
+            to become the curators of their own destinies.
+          </p>
+
+          <p>
+            But the direction is high. The destination matters. And the work
+            required to get there is work worth starting now.
+            Even if you can't build the future today you can sweep the pavement towards it and along the way
+            innovate in ways that are valuable in their own right.
+          </p>
+
+          <p>
+            <strong>Confidence: medium. Direction: high.</strong>
+          </p>
+
+        </div>
+
+        <footer class="article-footer">
+          <a href="../index.html" class="btn btn-primary">← Back to all posts</a>
+          <div class="post-card__tags" aria-label="Tags">
+            <span class="tag">AI</span>
+            <span class="tag">Future</span>
+            <span class="tag">SDLC</span>
+            <span class="tag">Prediction</span>
+            <span class="tag">Accessibility</span>
+          </div>
+        </footer>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+
+      <div class="footer-brand">
+        <p class="footer-logo">
+          <span class="logo-star" aria-hidden="true">✦</span>
+          Deneb
+        </p>
+        <p class="footer-disclaimer">
+          The views and opinions expressed on this blog are entirely my own personal
+          thoughts and ideas. They do not represent, reflect, or relate to the views
+          of any current or past employers.
+        </p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <p class="footer-nav-heading">Links</p>
+        <a href="https://github.com/Sam-Rowe"
+           rel="noopener noreferrer"
+           target="_blank"
+           aria-label="Sam Rowe on GitHub (opens in new tab)">
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/samuelcprowe/"
+           rel="noopener noreferrer"
+           target="_blank"
+           aria-label="Sam Rowe on LinkedIn (opens in new tab)">
+          LinkedIn
+        </a>
+        <a href="../about.html">About</a>
+        <a href="../index.html">Home</a>
+      </nav>
+
+      <p class="footer-bottom">
+        <small>© 2026 Sam Rowe. Built without frameworks, refined with AI.</small>
+      </p>
+
+    </div>
+  </footer>
+
+</body>
+</html>
