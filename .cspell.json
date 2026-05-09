@@ -1,6 +1,17 @@
 {
   "version": "0.2",
   "language": "en-GB",
+  "dictionaries": [
+    "en_GB",
+    "en-gb",
+    "software-terms",
+    "html",
+    "css",
+    "typescript",
+    "node",
+    "npm",
+    "fullstack"
+  ],
   "words": [
     "Deneb",
     "SDLC",
