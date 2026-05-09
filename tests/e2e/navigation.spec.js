@@ -75,9 +75,10 @@ test.describe('Navigation flow', () => {
     await page.goto('/');
     const firstPostLink = page.locator('.post-card__title a').first();
     const expectedTitle = (await firstPostLink.textContent())?.trim();
+    expect(expectedTitle).toBeTruthy();
     await firstPostLink.click();
     await expect(page).toHaveURL(/posts/);
-    await expect(page.locator('h1')).toContainText(expectedTitle || '');
+    await expect(page.locator('h1')).toContainText(expectedTitle);
   });
 
   test('can navigate back from blog post to homepage', async ({ page }) => {
