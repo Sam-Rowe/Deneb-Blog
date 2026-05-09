@@ -103,9 +103,12 @@
           </p>
 
           <p>
-            That image feels like science fiction. I think we're closer to it than
-            it sounds — and I think the trajectory is already visible in the way
+            That image feels like a recipe for disaster and science fiction. I think we're closer to it than
+            it sounds; and I think the trajectory is already visible in the way
             the best AI-assisted engineering teams are working right now.
+            More than that, I predict when the repo-with-no-code arrives, it will be the dominant pattern for software
+            because folk will love the customisation; it will be the only way to deal with the complexity and speed of software security
+            and it will be incredibly powerful to create experiences that currently cannot be created.
           </p>
 
           <h2>The pattern we're already living</h2>
@@ -116,8 +119,8 @@
           </p>
 
           <p>
-            Spec-driven development — the idea of capturing domain expertise in
-            human-readable specifications that sit alongside or ahead of code — is
+            Spec-driven development; the idea of capturing domain expertise in
+            human-readable specifications that sit alongside or ahead of code, is
             gaining real traction. Projects like
             <a href="https://speckit.org/" rel="noopener noreferrer" target="_blank">Spec Kit</a>
             treat the specification as a first-class engineering artifact: something
@@ -129,7 +132,7 @@
             Earlier posts on this blog have circled the same idea from different
             angles. <a href="2026-05-01-prompt-engineering-as-a-craft-skill.html">Prompt
             engineering as a craft skill</a> argued that the scarce input in
-            AI-assisted development is not tooling but domain knowledge — the ability
+            AI-assisted development is not tooling but domain knowledge, the ability
             to articulate intent precisely enough that a model can act on it reliably.
             <a href="2026-04-18-boundaries-first.html">Boundaries first</a> made the
             case for defining interfaces and contracts before touching implementation.
@@ -222,9 +225,11 @@
           <p>
             Consider a theoretical personal finance view. Today you manage your money
             across four or five siloed apps — a current account here, a pension there,
-            a mortgage portal you log in to twice a year and immediately forget the
-            password for. None of them know about each other. None of them present
-            your finances the way <em>you</em> actually think about money.
+            a mortgage portal you log in to twice a year (and immediately have to go through the 
+            biometric authentication dance each time). Each one either wants to know about all the otheers
+             without adaquate connectors or live in a world of purist isolation denying any other finacial 
+             dimension exists. None of them present
+            your finances the way <em>you uniquely</em> actually think about your money.
           </p>
 
           <p>
@@ -264,7 +269,10 @@
             interaction triggers a model generation, the energy cost is orders of
             magnitude above what we pay today for serving compiled code. This is
             not a reason the trajectory won't happen. It is a reason the trajectory
-            has to be honest about its costs.
+            has to be honest about its costs. In a few years will we have optimised 
+            the models and the hardware enough that local compute on modest hardware for this application regeneration is feasible?
+            
+            I am hopeful. but it is a big question mark.
           </p>
 
           <h3>Non-determinism and regressions</h3>
@@ -274,7 +282,9 @@
             ability to bisect against a fixed codebase. Testing intent rather than
             implementation is possible — it's actually a better model — but it
             requires a discipline around scenario coverage that most teams currently
-            don't have.
+            don't have. New frameworks that allow non developers to effectively customise 
+            thier applications without loosing consistency, reliability and security will 
+            be a critical part of the ecosystem that makes this trajectory viable.
           </p>
 
           <h3>Security and supply chain</h3>
@@ -284,6 +294,11 @@
             dependency trees. It becomes a different category of problem when the
             dependency graph is generated fresh each time and neither the developer
             nor the operator ever sees it.
+            On the plus side, with the right guardrails this could be a powerful way 
+            to keep pace with the rapidly evolving security landscape. If a new vulnerability emerges, 
+            the model could automatically exclude vulnerable dependencies from future builds, 
+            without waiting for developers to patch and release new versions. 
+            But it also opens up new attack vectors if not handled carefully.
           </p>
 
           <h3>Auditability and liability</h3>
@@ -293,7 +308,9 @@
             to "what did your system actually do?" currently points at code and logs.
             In a regenerated-application world, the answer points at intent documents
             and generation logs that may not exist in a form that satisfies an auditor.
-            This is solvable. But it requires work that hasn't started yet.
+            I am confident this is solvable with the right audit trails and logging standards and frameworks.
+             But it is a significant shift from the way we currently think about compliance and will require new
+             thinking from regulators as well as engineers.
           </p>
 
           <h2>What this means right now</h2>
@@ -306,7 +323,7 @@
           <p>
             <strong>Treat prompts, specs and scenarios as primary engineering artifacts.</strong>
             Version them. Review them. Test against them. If your intent documents live
-            in a Notion page that nobody owns and never gets updated, you are already
+            in a Word document or Confluence page that nobody owns and never gets updated, you are already
             behind where you need to be.
           </p>
 
@@ -316,7 +333,18 @@
             If your bank doesn't expose an API and your pension provider considers
             your balance proprietary, the finance app of your imagination stays
             theoretical. The technical capability is arriving before the data
-            infrastructure that makes it useful.
+            infrastructure that makes it useful. This also requires open standards
+            for autnetication and data portability that don't exist yet in all the domains where they are needed. 
+            They do exist in the UK for many fiancial systems with the Open Banking standards, but they are not yet universal.
+            If we want a future where users can choose to have their data flow into custom-built applications, 
+            we need to start building the infrastructure for that now.
+
+            I want to shout out to Salesforce here for their vision of a Headless future
+            https://www.salesforce.com/news/stories/salesforce-headless-360-announcement/ which I think is a really exciting and 
+            early example of this trajectory in the enterprise space. They are building the data infrastructure and access interfaces 
+            for AI Agents and users to personalise in real time their experience. While Salesforce are doing this to enable 
+            
+            I hope to see more of this kind of work from other platform providers in the coming years.
           </p>
 
           <p>
@@ -338,7 +366,7 @@
             can move through one at a time. Right now we ask whether the shared
             application is accessible to all of these people simultaneously, which
             is a hard design problem. In a per-user build world, you ask a different
-            question: what does this person actually need, and what can we leave out?
+            question: what does this person actually need, and what can we leave out to optimise for their experience?
           </p>
 
           <p>
@@ -355,15 +383,18 @@
           <p>
             The compute and governance problems are real obstacles, not just
             engineering challenges to be iterated away. The data portability
-            infrastructure doesn't exist at the scale this requires. And the
+            infrastructure is patchy and incomplete in many areas. And the
             cultural shift — from code as the thing that matters to intent as the
             thing that matters — will be slow and uneven, because it requires
-            engineers to let go of a very deeply held identity.
+            engineers to let go of a very deeply held identity with customisers and tinkerers 
+            to become the curators of their own destinies.
           </p>
 
           <p>
             But the direction is high. The destination matters. And the work
             required to get there is work worth starting now.
+            Even if you can't build the future today you can sweep the pavement towards it and along the way
+            innovate in ways that are valuable in their own right.
           </p>
 
           <p>
