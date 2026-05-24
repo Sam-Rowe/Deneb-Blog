@@ -845,11 +845,14 @@ img {
 /* Comparison table */
 .comparison-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   overflow: hidden;
   margin: var(--space-lg) 0;
+  font-size: 0.95rem;
+}
   font-size: 0.95rem;
 }
 
