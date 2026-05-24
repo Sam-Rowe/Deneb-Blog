@@ -226,6 +226,81 @@
             ideological and more practical.
           </p>
 
+          <figure class="wardley-map" aria-labelledby="wardley-map-caption">
+            <svg
+              viewBox="0 0 900 460"
+              role="img"
+              aria-labelledby="wardley-map-title wardley-map-desc"
+              xmlns="http://www.w3.org/2000/svg">
+              <title id="wardley-map-title">Wardley Map for AI developer tooling decisions</title>
+              <desc id="wardley-map-desc">A Wardley Map showing emergent items such as agentic workflows, CLI tools, and Open Claw to the left, skills and custom instructions in the middle, and Anthropic and OpenAI models as utility on the right.</desc>
+
+              <rect x="40" y="28" width="820" height="360" rx="14" ry="14" class="wardley-map__surface" />
+
+              <line x1="80" y1="70" x2="80" y2="350" class="wardley-map__axis" />
+              <line x1="80" y1="350" x2="830" y2="350" class="wardley-map__axis" />
+
+              <line x1="265" y1="88" x2="265" y2="350" class="wardley-map__grid" />
+              <line x1="450" y1="88" x2="450" y2="350" class="wardley-map__grid" />
+              <line x1="635" y1="88" x2="635" y2="350" class="wardley-map__grid" />
+
+              <text x="130" y="378" class="wardley-map__stage-label">Genesis</text>
+              <text x="305" y="378" class="wardley-map__stage-label">Custom</text>
+              <text x="492" y="378" class="wardley-map__stage-label">Product</text>
+              <text x="665" y="378" class="wardley-map__stage-label">Commodity / Utility</text>
+
+              <text x="46" y="84" class="wardley-map__axis-label" transform="rotate(-90 46 84)">Visible value</text>
+              <text x="710" y="416" class="wardley-map__axis-label">Evolution</text>
+
+              <line x1="145" y1="160" x2="235" y2="195" class="wardley-map__link" />
+              <line x1="235" y1="195" x2="360" y2="225" class="wardley-map__link" />
+              <line x1="360" y1="225" x2="538" y2="245" class="wardley-map__link" />
+              <line x1="538" y1="245" x2="538" y2="272" class="wardley-map__link" />
+              <line x1="538" y1="245" x2="720" y2="275" class="wardley-map__link" />
+
+              <circle cx="145" cy="160" r="10" class="wardley-map__node wardley-map__node--emergent" />
+              <text x="162" y="165" class="wardley-map__node-label">Agentic workflows</text>
+
+              <circle cx="250" cy="205" r="9" class="wardley-map__node wardley-map__node--emergent" />
+              <text x="256" y="210" class="wardley-map__node-label">CLI tools</text>
+
+              <circle cx="190" cy="195" r="9" class="wardley-map__node wardley-map__node--emergent" />
+              <text x="192" y="200" class="wardley-map__node-label">Open Claw</text>
+
+              <circle cx="360" cy="225" r="10" class="wardley-map__node wardley-map__node--middle" />
+              <text x="377" y="220" class="wardley-map__node-label">Skills</text>
+
+              <circle cx="360" cy="250" r="10" class="wardley-map__node wardley-map__node--middle" />
+              <text x="377" y="255" class="wardley-map__node-label">Custom instructions</text>
+
+              <circle cx="538" cy="100" r="9" class="wardley-map__node wardley-map__node--middle" />
+              <text x="555" y="105" class="wardley-map__node-label">AI developer tooling platforms</text>
+
+              <circle cx="538" cy="245" r="9" class="wardley-map__node wardley-map__node--middle" />
+              <text x="555" y="250" class="wardley-map__node-label">Developer IDEs</text>
+
+              <circle cx="720" cy="275" r="11" class="wardley-map__node wardley-map__node--utility" />
+              <text x="737" y="268" class="wardley-map__node-label">Anthropic models</text>
+
+              <circle cx="720" cy="300" r="11" class="wardley-map__node wardley-map__node--utility" />
+              <text x="737" y="305" class="wardley-map__node-label">OpenAI models</text>
+
+              <rect x="102" y="320" width="12" height="12" rx="2" class="wardley-map__key wardley-map__node--emergent" />
+              <text x="122" y="330" class="wardley-map__key-label">Emergent / CoD-led</text>
+
+              <rect x="282" y="320" width="12" height="12" rx="2" class="wardley-map__key wardley-map__node--middle" />
+              <text x="302" y="330" class="wardley-map__key-label">Contested middle / dual lens</text>
+
+              <rect x="540" y="320" width="12" height="12" rx="2" class="wardley-map__key wardley-map__node--utility" />
+              <text x="560" y="330" class="wardley-map__key-label">Utility / efficiency-led</text>
+            </svg>
+            <figcaption id="wardley-map-caption" class="wardley-map__caption">
+              Example map for AI developer tooling: emergent agentic capabilities on the left,
+              skills and custom instructions in the middle, and foundation models as utility on
+              the right.
+            </figcaption>
+          </figure>
+
           <table class="comparison-table" aria-label="Where efficiency and cost of delay dominate on a Wardley Map">
             <thead>
               <tr>

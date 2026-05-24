@@ -762,6 +762,128 @@ img {
   opacity: 0.8;
 }
 
+/* Wardley map figure */
+.wardley-map {
+  margin: var(--space-lg) 0;
+  padding: var(--space-md);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+}
+
+.wardley-map svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.wardley-map__surface {
+  fill: rgba(15, 17, 21, 0.35);
+  stroke: var(--border-subtle);
+}
+
+.wardley-map__axis {
+  stroke: var(--text-secondary);
+  stroke-width: 1.5;
+}
+
+.wardley-map__grid {
+  stroke: var(--border-subtle);
+  stroke-width: 1;
+  stroke-dasharray: 3 5;
+}
+
+.wardley-map__stage-label,
+.wardley-map__axis-label,
+.wardley-map__node-label,
+.wardley-map__key-label {
+  fill: var(--text-secondary);
+  font-family: var(--font-body);
+}
+
+.wardley-map__stage-label,
+.wardley-map__axis-label,
+.wardley-map__key-label {
+  font-size: 13px;
+}
+
+.wardley-map__node-label {
+  font-size: 14px;
+  fill: var(--text-primary);
+}
+
+.wardley-map__link {
+  stroke: rgba(76, 194, 255, 0.45);
+  stroke-width: 1.75;
+}
+
+.wardley-map__node {
+  stroke-width: 1.5;
+}
+
+.wardley-map__node--emergent {
+  fill: rgba(76, 194, 255, 0.18);
+  stroke: var(--accent);
+}
+
+.wardley-map__node--middle {
+  fill: rgba(154, 163, 173, 0.2);
+  stroke: var(--text-secondary);
+}
+
+.wardley-map__node--utility {
+  fill: rgba(230, 232, 235, 0.16);
+  stroke: var(--text-primary);
+}
+
+.wardley-map__caption {
+  margin-top: var(--space-sm);
+  font-size: var(--text-meta);
+  color: var(--text-secondary);
+}
+
+/* Comparison table */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin: var(--space-lg) 0;
+  font-size: 0.95rem;
+}
+
+.comparison-table thead th {
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  background: rgba(76, 194, 255, 0.08);
+  color: var(--text-primary);
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: top;
+}
+
+.comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 680px) {
+  .wardley-map {
+    padding: var(--space-sm);
+  }
+
+  .comparison-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 /* Article footer / back link */
 .article-footer {
   margin-top: var(--space-xl);
