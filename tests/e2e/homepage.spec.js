@@ -38,9 +38,11 @@ test.describe('Homepage', () => {
   test('displays the hero section with a heading', async ({ page }) => {
     const hero = page.locator('section.hero');
     const featuredPostTitle = page.locator('.post-card--featured .post-card__title a');
+    const featuredTitleText = (await featuredPostTitle.innerText()).trim();
     await expect(hero).toBeVisible();
     await expect(hero.locator('h1')).toBeVisible();
-    await expect(hero.locator('h1')).toContainText(await featuredPostTitle.textContent());
+    await expect(featuredTitleText).not.toBe('');
+    await expect(hero.locator('h1')).toContainText(featuredTitleText);
   });
 
   test('hero section has a call-to-action link', async ({ page }) => {

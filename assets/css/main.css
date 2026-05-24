@@ -7,6 +7,7 @@
 :root {
   /* Colours */
   --bg-primary: #0f1115;
+  --bg-primary-rgb: 15, 17, 21;
   --bg-secondary: #161a21;
   --text-primary: #e6e8eb;
   --text-secondary: #9aa3ad;
@@ -46,6 +47,7 @@
 /* Light theme overrides */
 [data-theme="light"] {
   --bg-primary: #f8f9fb;
+  --bg-primary-rgb: 248, 249, 251;
   --bg-secondary: #eef0f3;
   --text-primary: #1a1d23;
   --text-secondary: #5a6370;
@@ -778,7 +780,7 @@ img {
 }
 
 .wardley-map__surface {
-  fill: rgba(15, 17, 21, 0.35);
+  fill: rgba(var(--bg-primary-rgb), 0.35);
   stroke: var(--border-subtle);
 }
 
@@ -851,8 +853,6 @@ img {
   border-radius: var(--radius-md);
   overflow: hidden;
   margin: var(--space-lg) 0;
-  font-size: 0.95rem;
-}
   font-size: 0.95rem;
 }
 
