@@ -71,7 +71,8 @@
     "agentic",
     "WSJF",
     "Celeritas",
-    "Buun"
+    "Buun",
+    "repeatably"
   ],
   "ignorePaths": [
     "node_modules/**",
