@@ -72,7 +72,9 @@
     "WSJF",
     "Celeritas",
     "Buun",
-    "repeatably"
+    "repeatably",
+    "Hashimoto",
+    "tagline"
   ],
   "ignorePaths": [
     "node_modules/**",
