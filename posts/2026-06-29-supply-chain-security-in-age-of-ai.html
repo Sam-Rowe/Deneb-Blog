@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Supply chain security is buckling under rapid attacks. As updates become both risky and mandatory, AI might fundamentally shift how we consume open-source dependencies.">
+  <meta name="author" content="Sam Rowe">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Supply Chain Security in the Age of AI">
+  <meta property="og:description" content="Supply chain security is buckling under rapid attacks. As updates become both risky and mandatory, AI might fundamentally shift how we consume open-source dependencies.">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-06-29">
+  <meta property="article:author" content="Sam Rowe">
+
+  <title>Supply Chain Security in the Age of AI — Deneb</title>
+
+  <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Critical inline styles -->
+  <style>
+    :root { --bg-primary: #0f1115; }
+    body { background-color: var(--bg-primary); margin: 0; }
+    [data-theme="light"] { --bg-primary: #f8f9fb; }
+  </style>
+
+  <script src="../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap"
+    media="print"
+    onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap">
+  </noscript>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-container" aria-label="Main navigation">
+      <a class="nav-logo" href="../index.html" aria-label="Deneb — go to homepage">
+        <span class="logo-star" aria-hidden="true">✦</span>
+        Deneb
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        type="button"
+        aria-label="Switch to light theme">
+        <span class="theme-icon" aria-hidden="true">☀</span>
+        <span class="theme-label">Light</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div class="article-page">
+
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">Supply Chain Security in the Age of AI</span>
+      </nav>
+
+      <article>
+        <header class="article-header">
+          <h1 class="article-title">Supply Chain Security in the Age of AI</h1>
+
+          <div class="article-meta">
+            <time datetime="2026-06-29">29 Jun 2026</time>
+            <span aria-hidden="true">·</span>
+            <span>6 min read</span>
+            <span aria-hidden="true">·</span>
+            <span class="ai-badge" aria-label="AI-assisted content">AI-assisted</span>
+            <span aria-hidden="true">·</span>
+            <span class="confidence-badge confidence-badge--medium" aria-label="Confidence level: Medium">Confidence: Medium</span>
+          </div>
+        </header>
+
+        <div class="article-body">
+
+          <p class="lead">
+            The open-source supply chain is a modern marvel, but it is buckling under the weight of automated, rapid attacks. As the velocity of both vulnerabilities and exploits increases, the traditional model of blindly importing third-party code is becoming untenable. We are fast approaching a breaking point, but AI may offer a radical escape hatch: bespoke, on-demand dependencies.
+          </p>
+
+          <h2>The Rapidity of Modern Supply Chain Attacks</h2>
+
+          <p>
+            In recent years, the software industry has witnessed a disturbing escalation in supply chain attacks targeting package managers like npm, RubyGems, and PyPI. Malicious actors are no longer waiting for complex zero-days; they are exploiting the trust models of our package ecosystems. We've seen typosquatting, dependency confusion, and account takeovers used to inject malicious code directly into the build pipelines of thousands of organizations.
+          </p>
+
+          <p>
+            What's changing is the <em>rapidity</em> of these attacks. Automation, and increasingly AI, allows attackers to identify unmaintained packages, compromise author accounts, or publish malicious lookalikes at an unprecedented scale. When a popular library is compromised, the blast radius is immediate. Your next <code>npm install</code> could pull down a cryptominer or a backdoor before the community even realizes there's a problem.
+          </p>
+
+          <div class="callout" role="note">
+            <p><strong>Insight Summary:</strong> The open-source ecosystem relies on high trust and rapid consumption. Attackers are exploiting this velocity, turning our automated CI/CD pipelines into delivery mechanisms for malware.</p>
+          </div>
+
+          <h2>The Catch-22 of Updating</h2>
+
+          <p>
+            The conventional wisdom for security has always been "keep your dependencies up to date." But in the face of rapid supply chain poisoning, a new defence mechanism has emerged: <em>delaying</em> updates. Some organizations now intentionally hold back on adopting the latest package versions, waiting a few days to see if the community discovers anything malicious that sneaked in.
+          </p>
+
+          <p>
+            However, this creates a dangerous Catch-22. As software vulnerabilities are discovered and patched faster than ever, holding back updates means running known, vulnerable code. You are forced to choose between the risk of a fast, novel supply chain attack and the risk of an established, publicly disclosed CVE. Not updating is becoming increasingly hard to justify.
+          </p>
+
+          <p>
+            Mitchell Hashimoto, founder of HashiCorp, recently highlighted this tension, <a href="https://x.com/mitchellh/status/2057567975826395606?s=20" target="_blank" rel="noopener noreferrer">suggesting a shift in behavior</a>: rather than blindly importing packages, he advocates for cloning them and cherry-picking the specific fixes or features needed. It is a return to a more deliberate, albeit slower, method of software engineering.
+          </p>
+
+          <h2>Bespoke Dependencies: The AI Escape Hatch</h2>
+
+          <p>
+            Hashimoto's approach points to a fundamental flaw: we import entire ecosystems to use a fraction of their functionality. But manually cherry-picking code doesn't scale for modern software development. This is where AI could fundamentally rewrite the rules.
+          </p>
+
+          <p>
+            I previously wrote about a future where software is built on demand for specific users. The logical first step toward that future is revolutionizing how we handle libraries. Instead of downloading a massive, pre-compiled package with its own sprawling dependency tree, what if we used the open-source ecosystem purely as a blueprint?
+          </p>
+
+          <p>
+            Imagine a build process where an AI system analyses your project's specific needs and then generates a bespoke, minimized version of a library containing <em>only</em> the features you actually use. It doesn't download the package; it understands the package's logic and writes a custom, isolated implementation directly into your codebase.
+          </p>
+
+          <div class="callout callout--ai" role="note">
+            <span class="callout-icon" aria-hidden="true">✦</span>
+            <div class="callout-content">
+              <p><strong>The AI Shift:</strong> From consumption to synthesis. AI models could act as an intelligent compiler between human intent (the blueprint library) and the final codebase, synthesizing secure, purpose-built implementations and eliminating the concept of a shared, vulnerable package repository entirely.</p>
+            </div>
+          </div>
+
+          <p>
+            This would instantly eliminate huge swaths of the attack surface. There are no external packages to poison. There are no unused functions hiding dormant vulnerabilities. If a bug is found in the original "blueprint," the AI can synthesize a patched version specifically for your implementation, without waiting for an upstream author to merge a pull request.
+          </p>
+
+          <h2>The End of the Package Manager?</h2>
+
+          <p>
+            We are moving toward a paradigm where code generation outpaces code consumption. The era of <code>npm install</code> as a blind act of faith is drawing to a close. The future of supply chain security is not better scanners or delayed updates; it is using AI to sever the chain entirely, replacing generic, shared dependencies with synthesized, bespoke components. What downsides are there to this approach? Will it create more fragile packages or higher maintenance costs? Probably, but is there a better compromise?
+          </p>
+
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      
+      <div class="footer-brand">
+        <p class="footer-logo">
+          <span aria-hidden="true">✦</span>
+          Deneb
+        </p>
+        <p class="footer-tagline">
+          Exploring the intersection of AI,<br>
+          software engineering, and what comes next.
+        </p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <p class="footer-nav-heading">Links</p>
+        <a href="https://github.com/Sam-Rowe"
+           rel="noopener noreferrer"
+           target="_blank"
+           aria-label="Sam Rowe on GitHub (opens in new tab)">
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/samuelcprowe/"
+           rel="noopener noreferrer"
+           target="_blank"
+           aria-label="Sam Rowe on LinkedIn (opens in new tab)">
+          LinkedIn
+        </a>
+        <a href="../about.html">About</a>
+        <a href="../index.html">Home</a>
+      </nav>
+
+      <p class="footer-bottom">
+        <small>© 2026 Sam Rowe. Built without frameworks, refined with AI.</small>
+      </p>
+
+    </div>
+  </footer>
+
+</body>
+</html>
