@@ -1,0 +1,17 @@
+# Deneb
+
+> An AI-native editorial tech blog by Sam Rowe, exploring the software development lifecycle through an honest, opinionated AI lens.
+
+## Posts
+
+- [Hello, Deneb: What This Blog Is Here to Do](https://blog.deneb.co.uk/posts/2025-01-15-hello-deneb.md): An introduction to Deneb, its mission, and its approach to transparent AI-assisted writing.
+- [Multiple Anchor Points: How to Ground AI Agents and Get Better Code](https://blog.deneb.co.uk/posts/2026-04-16-multiple-anchor-points.md): How multiple reference points improve the accuracy and reliability of AI-generated code.
+- [Boundaries First: How Software Architecture Shapes What AI Agents Can Deliver](https://blog.deneb.co.uk/posts/2026-04-18-boundaries-first.md): Why small, contract-bound, independently operable units improve AI-assisted software delivery.
+- [Building a Simple Game With a 9-Year-Old Using AI](https://blog.deneb.co.uk/posts/2026-04-23-building-a-game-with-my-daughter.md): How a father and daughter used GitHub Copilot to plan, build, and ship a game.
+- [Prompt Engineering as a Craft Skill](https://blog.deneb.co.uk/posts/2026-05-01-prompt-engineering-as-a-craft-skill.md): Why domain expertise matters more than prompting technique when working with AI.
+- [AI Engineering as a Craft Skill: The Organisational Angle](https://blog.deneb.co.uk/posts/2026-05-03-prompt-engineering-as-a-craft-skill-the-organisational-angle.md): How teams can build, recognise, and leverage AI engineering skill at scale.
+- [The repo of the future has no code in it](https://blog.deneb.co.uk/posts/2026-05-08-the-repo-of-the-future-has-no-code-in-it.md): A prediction that future repositories will contain intent rather than code, and applications will be regenerated on demand.
+- [Cost of Delay in an AI World: A Map for When the Ground Moves](https://blog.deneb.co.uk/posts/2026-05-24-right-tool-right-clock-cost-of-delay-in-an-ai-world.md): How Wardley Maps help decide when cost of delay or efficiency should lead.
+- [Supply Chain Security in the Age of AI](https://blog.deneb.co.uk/posts/2026-06-29-supply-chain-security-in-age-of-ai.md): How AI may change the way we consume open-source dependencies amid escalating supply-chain attacks.
+- [When the Map Runs Out: Why Domain Experts Win at AI Engineering](https://blog.deneb.co.uk/posts/2026-07-16-when-the-map-runs-out.md): Why AI engineering rewards people who can navigate wicked systems with judgement and strong anchor points.
+- [The End of the Free Internet?](https://blog.deneb.co.uk/posts/2026-08-01-the-end-of-the-free-internet.md): How AI is changing who reads the web, who pays for it, and who receives the value.
