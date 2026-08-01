@@ -77,7 +77,11 @@
     "tagline",
     "playbook",
     "Soyer",
-    "Emre"
+    "Emre",
+    "Zuckerman",
+    "grassroots",
+    "llms",
+    "Googlebot"
   ],
   "ignorePaths": [
     "node_modules/**",
