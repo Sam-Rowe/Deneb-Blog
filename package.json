@@ -11,7 +11,8 @@
     "lint:html": "htmlhint \"**/*.html\" --ignore \"node_modules/**\"",
     "lint:css": "stylelint \"assets/css/**/*.css\"",
     "lint:acronyms": "node scripts/check-acronyms.js",
-    "spellcheck": "cspell \"**/*.{html,md,css,js}\" --no-progress",
+    "spellcheck": "cspell \"**/*.{html,md,css,js,txt}\" --no-progress",
+    "validate:llms": "node scripts/validate-llms.js",
     "serve": "serve . -l 3000"
   },
   "devDependencies": {

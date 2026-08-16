@@ -1,0 +1,24 @@
+# Deneb
+
+https://blog.deneb.co.uk/
+
+Deneb is an AI-native editorial tech blog exploring software engineering, AI, and the SDLC through grounded, opinionated writing.
+
+## Main posts
+
+- [The End of the Free Internet?](https://blog.deneb.co.uk/posts/2026-08-01-the-end-of-the-free-internet.html)
+- [When the Map Runs Out: Why Domain Experts Win at AI Engineering](https://blog.deneb.co.uk/posts/2026-07-16-when-the-map-runs-out.html)
+- [Supply Chain Security in the Age of AI](https://blog.deneb.co.uk/posts/2026-06-29-supply-chain-security-in-age-of-ai.html)
+- [Cost of Delay in an AI World: A Map for When the Ground Moves](https://blog.deneb.co.uk/posts/2026-05-24-right-tool-right-clock-cost-of-delay-in-an-ai-world.html)
+- [The Repo of the Future Has No Code in It](https://blog.deneb.co.uk/posts/2026-05-08-the-repo-of-the-future-has-no-code-in-it.html)
+- [AI Engineering as a Craft Skill: The Organisational Angle](https://blog.deneb.co.uk/posts/2026-05-03-prompt-engineering-as-a-craft-skill-the-organisational-angle.html)
+- [Prompt Engineering as a Craft Skill](https://blog.deneb.co.uk/posts/2026-05-01-prompt-engineering-as-a-craft-skill.html)
+- [Building a Simple Game With a 9-Year-Old Using AI](https://blog.deneb.co.uk/posts/2026-04-23-building-a-game-with-my-daughter.html)
+- [Boundaries First: How Software Architecture Shapes What AI Agents Can Deliver](https://blog.deneb.co.uk/posts/2026-04-18-boundaries-first.html)
+- [Multiple Anchor Points: How to Ground AI Agents and Get Better Code](https://blog.deneb.co.uk/posts/2026-04-16-multiple-anchor-points.html)
+- [Hello, Deneb: What This Blog Is Here to Do](https://blog.deneb.co.uk/posts/2025-01-15-hello-deneb.html)
+
+## About
+
+- [About this blog](https://blog.deneb.co.uk/about.html)
+- [Home](https://blog.deneb.co.uk/)
