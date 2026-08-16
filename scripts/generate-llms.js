@@ -10,19 +10,20 @@ const pages = [
   'about.html',
   ...fs.readdirSync(path.join(projectRoot, 'posts'))
     .filter((filename) => filename.endsWith('.html'))
-    .sort(),
+    .sort()
+    .map((filename) => `posts/${filename}`),
 ];
 
 function decodeHtmlEntities(value) {
   return value
-    .replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
     .replace(/&nbsp;/g, ' ')
     .replace(/&#x27;/g, "'")
-    .replace(/&apos;/g, "'");
+    .replace(/&apos;/g, "'")
+    .replace(/&amp;/g, '&');
 }
 
 function stripTags(value) {
@@ -91,7 +92,7 @@ function convertBody(bodyHtml) {
     return `\n\n${items.join('\n')}\n`;
   });
   body = body.replace(/<p\s*[^>]*>([\s\S]*?)<\/p>/gi, (_, inner) => `\n\n${convertInline(inner)}\n`);
-  body = body.replace(/<li\s*[^>]*>([\s\S]*?)<\/li>/gi, '\n- ' + convertInline('$1'));
+  body = body.replace(/<li\s*[^>]*>([\s\S]*?)<\/li>/gi, (_, inner) => `\n- ${convertInline(inner)}`);
 
   body = decodeHtmlEntities(body);
   body = body.replace(/<[^>]+>/g, ' ');
