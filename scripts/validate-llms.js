@@ -1,65 +1,60 @@
-#!/usr/bin/env node
-'use strict';
-
 const fs = require('fs');
 const path = require('path');
 
-const projectRoot = path.resolve(__dirname, '..');
-const postsDir = path.join(projectRoot, 'posts');
+const root = path.resolve(__dirname, '..');
+const expectedPosts = [
+  'posts/2026-08-01-the-end-of-the-free-internet.html',
+  'posts/2026-07-16-when-the-map-runs-out.html',
+  'posts/2026-06-29-supply-chain-security-in-age-of-ai.html',
+  'posts/2026-05-24-right-tool-right-clock-cost-of-delay-in-an-ai-world.html',
+  'posts/2026-05-08-the-repo-of-the-future-has-no-code-in-it.html',
+  'posts/2026-05-03-prompt-engineering-as-a-craft-skill-the-organisational-angle.html',
+  'posts/2026-05-01-prompt-engineering-as-a-craft-skill.html',
+  'posts/2026-04-23-building-a-game-with-my-daughter.html',
+  'posts/2026-04-18-boundaries-first.html',
+  'posts/2026-04-16-multiple-anchor-points.html',
+  'posts/2025-01-15-hello-deneb.html',
+];
 
-function ensure(condition, message) {
-  if (!condition) {
-    throw new Error(message);
+function read(filePath) {
+  if (!fs.existsSync(filePath)) {
+    throw new Error(`Missing required file: ${path.relative(root, filePath)}`);
+  }
+  return fs.readFileSync(filePath, 'utf8');
+}
+
+const llms = read(path.join(root, 'llms.txt'));
+const llmsFull = read(path.join(root, 'llms-full.txt'));
+
+if (!llms.includes('## Main posts')) {
+  throw new Error('llms.txt is missing the main posts section.');
+}
+
+for (const post of expectedPosts) {
+  if (!llms.includes(post)) {
+    throw new Error(`llms.txt is missing ${post}.`);
+  }
+  if (!llmsFull.includes(post)) {
+    throw new Error(`llms-full.txt is missing ${post}.`);
   }
 }
 
-function scanPages() {
-  const pages = ['index.html', 'about.html'];
-  const postFiles = fs.readdirSync(postsDir)
-    .filter((name) => name.endsWith('.html'))
-    .sort();
-  return [...pages, ...postFiles.map((name) => path.join('posts', name))];
+if (llms.trim() !== llmsFull.trim()) {
+  throw new Error('llms-full.txt must match llms.txt for now.');
 }
 
-function main() {
-  const llmsPath = path.join(projectRoot, 'llms.txt');
-  ensure(fs.existsSync(llmsPath), 'llms.txt is missing at the site root.');
-
-  const llms = fs.readFileSync(llmsPath, 'utf8');
-  ensure(/# Deneb/i.test(llms), 'llms.txt is missing the required site title.');
-  ensure(/\[.*\]\(.*\.html\.md\)/.test(llms), 'llms.txt does not include markdown links for content pages.');
-
-  const pages = scanPages();
-  const missing = [];
-  const badLinks = [];
-
-  for (const page of pages) {
-    const fullPath = path.join(projectRoot, page);
-    const html = fs.readFileSync(fullPath, 'utf8');
-    const markdownPath = path.join(projectRoot, `${page}.md`);
-    if (!fs.existsSync(markdownPath)) {
-      missing.push(`${page}.md`);
-      continue;
-    }
-
-    const alternate = `${page}.md`;
-    const describedby = 'llms.txt';
-    const hasAlternate = html.includes(`href="${alternate}"`) && html.includes('type="text/markdown"');
-    const hasDescribedBy = html.includes(`href="${describedby}"`) && html.includes('rel="describedby"');
-
-    if (!hasAlternate) badLinks.push(`Missing alternate markdown link on ${page}`);
-    if (!hasDescribedBy) badLinks.push(`Missing describedby link on ${page}`);
+for (const file of ['index.html', 'about.html', ...expectedPosts]) {
+  const contents = read(path.join(root, file));
+  if (!contents.includes('href="/llms.txt"')) {
+    throw new Error(`${file} is missing the llms alternate link.`);
   }
-
-  ensure(missing.length === 0, `Missing markdown mirrors: ${missing.join(', ')}`);
-  ensure(badLinks.length === 0, badLinks.join('; '));
-
-  console.log(`✓ llms.txt and ${pages.length} markdown mirrors are present and linked correctly.`);
+  if (!contents.includes('href="/llms/index.md"')) {
+    throw new Error(`${file} is missing the markdown mirror link.`);
+  }
+  if (!contents.includes('rel="describedby" href="/llms.txt"')) {
+    throw new Error(`${file} is missing the llms describedby link.`);
+  }
 }
 
-try {
-  main();
-} catch (error) {
-  console.error(`✗ ${error.message}`);
-  process.exit(1);
-}
+console.log('llms validation passed');
+
